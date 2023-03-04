@@ -43,59 +43,58 @@ if (isset($_POST['register'])) {
 }
 else{
 
-//   if(!checkusernameexist($con,$username)){
-//     header("location:registre.php?error=username is exist");
-//     exit(); 
-//   }
-//   if(!checkemailexist($con,$email)){
-//     header("location:registre.php?error=email is exist");
-//     exit(); 
+  if(!checkusernameexist($con,$username)){
+     header("location:registre.php?error=username is exist");
+    exit(); 
+  }
+  if(!checkemailexist($con,$email)){
+    header("location:registre.php?error=email is exist");
+    exit(); 
     
-//    }
+   }
 
 
 
 
  if(insert($con,$username,$email,$password, $re_password,$name)){ ;
      $_SESSION['username']=$username;
-     header("location:profile.php");
+     header("location:profil.php");
  }
 
 }
 
 }
 
-
-// if (isset($_POST['signin'])) {
-//     $con = config::connect(); // The :: notation is used to call a static method on a class
+//login************************
+if (isset($_POST['signin'])) {
+    $con = config::connect(); // The :: notation is used to call a static method on a class
   
-//     $username = sanitizeString($_POST['username']);
+    $username = sanitizeString($_POST['username']);
 
-//     $password = sanitizePassword($_POST['password']);
+    $password = sanitizePassword($_POST['password']);
 
-//     if(empty($username)){
-//         header("location:login.php?error=Username is required");
-//         exit();
-//     }elseif(empty($password)){
-//         header("location:login.php?error=password is required");
-//         exit(); 
-//     }
+    if(empty($username)){
+        header("location:login.php?error=Username is required");
+        exit();
+    }elseif(empty($password)){
+        header("location:login.php?error=password is required");
+        exit(); 
+    }
     
-//     else{
+  else{
 
 
+if(checklogin($con,$username,$password)){
 
-// if(checklogin($con,$username,$password)){
+    $_SESSION['username']=$username;
+     header("location:profil.php");
 
-//     $_SESSION['username']=$username;
-//      header("location:profile.php");
-
-// }else{
-//     header("location:login.php?error=Username or the  password are incorrect!");
-//     exit();
-// }
-// }
-// }
+}else{
+    header("location:login.php?error=Username or the  password are incorrect!");
+    exit();
+}
+}
+}
 
 // if(isset($_POST['update'])){
 //     $con = config::connect(); // The :: notation is used to call a static method on a class
@@ -128,7 +127,7 @@ else{
 //  if(update($con,$id,$username,$email,$password)){ ;
      
 //     $_SESSION['username']=$username;
-//      header("Location:profile.php");
+//      header("Location:profil.php");
 //  }
 
 

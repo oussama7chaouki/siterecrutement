@@ -48,26 +48,25 @@
 <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
   <li class="nav-item" role="presentation">
     <a
-      class="nav-link hicham"
+      class="nav-link active hicham"
       id="tab-login"
       data-mdb-toggle="pill"
       href="#pills-login"
       role="tab"
       aria-controls="pills-login"
       aria-selected="true"
-      
       >Login</a
     >
   </li>
   <li class="nav-item" role="presentation">
     <a
-      class="nav-link active"
+      class="nav-link"
       id="tab-register"
       data-mdb-toggle="pill"
       href="#pills-register"
       role="tab"
       aria-controls="pills-register"
-      aria-selected="true"
+      aria-selected="false"
       >Register</a
     >
   </li>
@@ -79,12 +78,12 @@
 
 <div class="tab-content" style="witdh:500px">
   <div
-    class="tab-pane fade "
+    class="tab-pane fade show active"
     id="pills-login"
     role="tabpanel"
     aria-labelledby="tab-login"
   >
-  <form action="profil.php"   method="POST">
+  <form action="process.php"   method="POST">
       <div class="text-center mb-3" style="max-witdh:500px" >
         <p>Sign in with:</p>
         <button type="button" class="btn btn-primary btn-floating mx-1">
@@ -105,6 +104,9 @@
       </div>
 
       <p class="text-center">or:</p>
+      <?php if(isset($_GET['error']));{?>
+    <p class="error"><?php echo $_GET['error'];?></p>
+    <?php }?>
 
       <!-- Email input -->
       <div class="form-outline mb-4">
@@ -141,7 +143,7 @@
       </div>
 
       <!-- Submit button -->
-      <button type="submit" name="sign in" class="btn btn-primary btn-block mb-4" >Sign in</button>
+      <button type="submit" name="signin" class="btn btn-primary btn-block mb-4" >Sign in</button>
 
       <!-- Register buttons -->
       <div class="text-center">
@@ -151,7 +153,7 @@
     </form>
   </div>
   <div
-    class="tab-pane fade show active"
+    class="tab-pane fade"
     id="pills-register"
     role="tabpanel"
     aria-labelledby="tab-register"
@@ -179,7 +181,7 @@
 
       <p class="text-center">or:</p>
       
-      <?php if(isset($_GET['error'])){?>
+      <?php if(isset($_GET['error']));{?>
     <p class="error"><?php echo $_GET['error'];?></p>
     <?php }?>
 
