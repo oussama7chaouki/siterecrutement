@@ -15,6 +15,10 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="oussama.css">
     <!-- <link rel="stylesheet" href="index.css"> -->
+    <script defer src="test.js"></script>
+    <!-- include tweenlight -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
 </head>
 <body>
 <header>
@@ -31,6 +35,12 @@ session_start();
 </nav>
 
 </header>
+<div class="center">
+	<div class="slider__wrapper">
+		<span class="slider"></span>
+		<span class="slider__text">WELCOME<span class="hicham"> <?php echo $_SESSION['username']; ?></span></span>
+	</div>
+</div>
 <div class="content">
       <!-- card -->
       <div class="card">
@@ -64,5 +74,19 @@ session_start();
    
    </div>
 </div>
+<footer>
+ <h4>© 2022 Jobs Portal. </h4>
+
+<div class="foot">
+    <a href="#">CONTACT US</a>
+    <a href="#">LOGIN</a>
+    <a href="#">SIGN UP</a>
+
+</div>
+
+
+
+
+</footer>
 </body>
 </html>

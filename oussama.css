@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 .wrapper {
   width: 100vw;
   margin: 0 auto;
@@ -18,8 +19,8 @@
 .content {
   max-width: 1024px;
   width: 100%;
-  padding: 0 4%;
-  padding-top: 250px;
+  padding: 0 4% 10% 4%;
+  /* padding-top: 250px; */
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -28,7 +29,7 @@
 
 @media screen and (max-width: 767px) {
   .content {
-    padding-top: 300px;
+    padding-top: 0;
     flex-direction: column;
   }
 }
@@ -165,6 +166,97 @@ header{
   .nav a:hover{
       color: #338573;
   }
-  .txt img{
-    
+ /*--------footer*/
+ 
+footer{
+
+  background-color: #338573;
+}
+footer h4{
+ 
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 80px;
+}
+.foot{
+  display: flex;
+  justify-content: space-around;
+}
+
+.foot a{
+
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 80px;
+
+}
+
+
+.center{
+  left:0;
+ top:0;
+   width: 100%;
+   height: 100%;
+   color: #cc0000;
+   /* // position: fixed; */
+   display: inline-flex;
+   justify-content: center;
+ font-size:2.5em;
+   align-items: center;
+   transition: all 2.5s ease, color 0.3s ease;
+   z-index: 9999999999999;
+ /* background-color:#000; */
+ flex-direction: column;
+}
+
+/*Sliding Effect*/
+.slider__wrapper {
+  display: block;
+ position: relative;
+ min-width: 50%;
+ margin: 1em auto;
+ padding: 1.5em 2em;
+ transition: all 0.2s ease;
+}
+.slider {
+ position: absolute;
+ width: 1.4em;
+ bottom: 0px;
+ right: 0px;
+ background:#338573;
+ transition: width 0.5s cubic-bezier(1, 0.27, 0, 0.78);
+ box-shadow: 0px 0px 10px 0px #338573;
+ z-index: 999999;
+}
+.slider:after,
+.slider:before {
+ content: "";
+ position: absolute;
+}
+.slider__text {
+ /* // color: #cc0000; */
+ color: #338573;
+ font-size: 1.5em;
+ padding-left:.5em;
+ opacity: 0;
+ font-family:'Poppins';
+ text-align: center;
+  /* text-shadow: 0px 0px 8px #338573; */
+}
+.hicham{
+  text-transform: uppercase;
+
+  color: #ffffff;
+  text-stroke: 2px #338573;
+  -webkit-text-stroke: 1.5px #338573;
+  font-size: 0.75em;
+}
+@media screen and (max-width: 767px) {
+  .slider__wrapper{
+    display: none;
   }
+}
