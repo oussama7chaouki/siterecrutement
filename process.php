@@ -44,11 +44,11 @@ if (isset($_POST['register'])) {
 else{
 
   if(!checkusernameexist($con,$username)){
-     header("location:registre.php?error=username is exist");
+     header("location:login.php?error=username is exist");
     exit(); 
   }
   if(!checkemailexist($con,$email)){
-    header("location:registre.php?error=email is exist");
+    header("location:login.php?error=email is exist");
     exit(); 
     
    }

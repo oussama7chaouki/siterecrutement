@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +22,9 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
   rel="stylesheet"
 />
+
+<script defer src="CHECK .JS"></script>
+
   </head>
     <title>Document</title>
 </head>
@@ -48,13 +49,14 @@
 <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
   <li class="nav-item" role="presentation">
     <a
-      class="nav-link active hicham"
+      class="nav-link hicham"
       id="tab-login"
       data-mdb-toggle="pill"
       href="#pills-login"
       role="tab"
       aria-controls="pills-login"
       aria-selected="true"
+      onclick="outesteur();errormessage()"
       >Login</a
     >
   </li>
@@ -67,6 +69,7 @@
       role="tab"
       aria-controls="pills-register"
       aria-selected="false"
+      onclick="outesteur();errormessage()"
       >Register</a
     >
   </li>
@@ -78,7 +81,7 @@
 
 <div class="tab-content" style="witdh:500px">
   <div
-    class="tab-pane fade show active"
+    class="tab-pane fade"
     id="pills-login"
     role="tabpanel"
     aria-labelledby="tab-login"
@@ -104,8 +107,8 @@
       </div>
 
       <p class="text-center">or:</p>
-      <?php if(isset($_GET['error']));{?>
-    <p class="error"><?php echo $_GET['error'];?></p>
+      <?php if(isset($_GET['error'])){?>
+    <p id="error1"><?php echo $_GET['error'];?></p>
     <?php }?>
 
       <!-- Email input -->
@@ -181,8 +184,8 @@
 
       <p class="text-center">or:</p>
       
-      <?php if(isset($_GET['error']));{?>
-    <p class="error"><?php echo $_GET['error'];?></p>
+      <?php if(isset($_GET['error'])){?>
+    <p id="error2"><?php echo $_GET['error'];?></p>
     <?php }?>
 
       <!-- Name input -->
@@ -327,14 +330,35 @@
           <a class="text-light" href="https://mdbootstrap.com/"><i class="fas fa-lightbulb"></i> HierTech Solutions </a>
 <script
   type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
+  src="mdb.min.js"
 ></script>
 
 
-    <script type = "text/javascript">
-      
-        
-    </script>
+<script>
 
+const errorMessage1 = document.getElementById("error1");
+const errorMessage2 = document.getElementById("error2");
+
+tabregister=document.getElementById("tab-register");
+tablogin=document.getElementById("tab-login");
+function errormessage(){
+if(tabregister.classList.contains("active")){
+  // if(!empty(errorMessage2)){
+    errorMessage2.remove();
+  //}
+  
+} 
+else{
+  // if(!empty(errorMessage1)){
+      errorMessage1.remove();
+// }
+}}
+if (errorMessage1 !== null && performance.navigation.type === 1) {
+errorMessage1.remove();
+}
+if (errorMessage2 !== null && performance.navigation.type === 1) {
+errorMessage2.remove();
+}
+</script>
 </body>
 </html>

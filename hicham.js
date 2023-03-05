@@ -1,3 +1,4 @@
+
 oussama=document.getElementById("och")
 oussama1=document.getElementById("ouch")
 setInterval(change, 2500);

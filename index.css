@@ -223,14 +223,7 @@ footer h4{
 
 
 
-   .error{
-    background-color: #f2dede;
-    color: #a94442;
-    padding: 8px;
-    width: 100%;
-    border-radius: 5px;
-  
-}
+ 
 .nav-pills .nav-link.active,.btn-primary{
     background-color: #338573!important;
 }
@@ -240,7 +233,14 @@ footer h4{
     background-color:#338573;
     border-radius: 50%;
 }
-
+#error2,#error1{
+    background-color: #f2dede;
+    color: #a94442;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+  
+}
 
 
 
