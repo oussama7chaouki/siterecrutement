@@ -43,12 +43,12 @@ session_start();
 </div>
 <div class="content">
       <!-- card -->
-      <div class="card">
-         
+     <div class="card">
+         <a href="crud\student.php">
             <div class="icon"><i class="material-icons md-36"><img src="resume (2).png" alt=""></i></div>
             <p class="title">Profile</p>
             <p class="text">Click to see or edit your profile page.</p>
-         
+         </a> 
       </div>
       <!-- end card -->
       <!-- card -->

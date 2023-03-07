@@ -1,0 +1,59 @@
+header{
+    background:  white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 200px;
+    align-items: center;
+  
+  }
+  .logo{
+      text-decoration: none;
+      color: #338573;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.7em;
+  
+  }
+  .nav a{
+      color: #338573;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: 450;
+      padding-left: 30px;
+   
+  }
+  
+  .nav a:hover{
+      color: #338573;
+  }
+  footer{
+
+    background-color: #338573;
+  }
+  footer h4{
+   
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 80px;
+  }
+  .foot{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .foot a{
+  
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 80px;
+  
+  }
+  .btn{
+    background-color: #338573!important;
+    color:white!important;
+  }
