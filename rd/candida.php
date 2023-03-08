@@ -47,6 +47,43 @@ session_start();
 </nav>
 
 </header>
+
+
+<!-- View Modal -->
+<div class="modal fade" id="candidatureViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">View formation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+            <div class="modal-body">
+
+                <div class="mb-3">
+                    <label for="">Formation</label>
+                    <p id="view_formation" class="form-control"></p>
+                </div>
+                <div class="mb-3">
+                    <label for="">school</label>
+                    <p id="view_school" class="form-control"></p>
+                </div>
+                <div class="mb-3">
+                    <label for="">startyear</label>
+                    <p id="view_startyear" class="form-control"></p>
+                </div>
+                <div class="mb-3">
+                    <label for="">endyear</label>
+                    <p id="view_endyear" class="form-control"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-12">
@@ -83,7 +120,7 @@ session_start();
                                     ?>
                                     <tr>
                                         <td><?= $candidature['date'] ?></td>
-                                        <td><?= $candidature['titre'] ?></td>
+                                        <td><?= $candidature['job_title'] ?></td>
                                         <td><?= $candidature['company'] ?></td>
                                         <td><?= $candidature['status'] ?></td>
                                         <td>

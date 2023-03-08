@@ -27,8 +27,8 @@ session_start();
 <nav class="nav">
 <li class="nav-item">
     <a href=""> <?php echo 'hello ' .$_SESSION['username']; ?></a> 
-                <a href="index.html">
-              <button type="button" class="btn btn-rounded mx-2" style="background-color: #338573; color: white">LOGOUT</button>
+                <a href="logout.php">
+              <button  type="button" class="btn btn-rounded mx-2" style="background-color: #338573; color: white">LOGOUT</button>
                </a> 
             </li>
 
@@ -53,11 +53,11 @@ session_start();
       <!-- end card -->
       <!-- card -->
       <div class="card">
-         
+         <a href="jobapply\index.PHP">
             <div class="icon"><i class="material-icons md-36"><img src="businessman-paper-of-the-application-for-a-job.png" alt=""></i></div>
             <p class="title">JOB SEARCH</p>
             <p class="text">Check all your favourites in one place.</p>
-         
+         </a>
       </div>
       <!-- end card -->
       <!-- card -->
