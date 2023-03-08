@@ -62,11 +62,11 @@ session_start();
       <!-- end card -->
       <!-- card -->
       <div class="card">
-         
+         <a href="rd\candida.php">
             <div class="icon"><i class="material-icons md-36"><img src="candidate.png" alt=""></i></div>
             <p class="title">JOB APPLY</p>
-            <p class="text">Add or change your contacts and links.</p>
-         
+            <p class="text">delete or change your job application</p>
+         </a>
       </div>
       <!-- end card -->
    
