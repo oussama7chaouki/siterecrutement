@@ -1,16 +1,16 @@
 <?php
 //insert.php
 //insert.php
-require '../dbcon1.php';
-$con = config::connect(); // The :: notation is used to call a static method on a class
+// require '../dbcon1.php';
+// $con = config::connect(); // The :: notation is used to call a static method on a class
+require('../userid.php');
 if(isset($_POST["skill"]))
 {
-    $userid='3';
-    $querytest="select count(*) from skills where user_id=:user_id";
+   $querytest="select count(*) from skills where user_id=:user_id";
     $statement1 = $con->prepare($querytest);
  $statement1->execute( 
     array(
-    ':user_id'=>$userid)
+    ':user_id'=>$user_id)
  );
  $number_of_rows = $statement1->fetchColumn(); 
 
@@ -19,7 +19,7 @@ if(isset($_POST["skill"]))
         $statement = $con->prepare($query);
         $statement->execute(
          array(
-            ':user_id'=>$userid,
+            ':user_id'=>$user_id,
           ':skill' => $_POST["skill"]
          )
         );
@@ -30,7 +30,7 @@ if(isset($_POST["skill"]))
  $statement = $con->prepare($query);
  $statement->execute(
   array(
-    ':user_id'=>$userid,
+    ':user_id'=>$user_id,
    ':skill' => $_POST["skill"]
   )
  );

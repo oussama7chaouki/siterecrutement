@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+if(isset($_SESSION['username'])){header("location:profil.php");
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,7 +122,7 @@
       <!-- Email input -->
       <div class="form-outline mb-4">
         <input type="text" id="email" name="username" class="form-control" />
-        <label class="form-label" for="loginName">Email or username</label>
+        <label class="form-label" for="loginName">username</label>
       </div>
 
       <!-- Password input -->

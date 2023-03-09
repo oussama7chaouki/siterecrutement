@@ -48,8 +48,11 @@ console.log(skilos)
         if(data != '')
         {
          $('#name').val('');
+         console.log(data)
         //  $('#skill').tokenfield('setTokens',[]);
         //  $('#success_message').html(data);
+        // alertify.confirm('Confirm Title', 'data', function(){ alertify.success('Ok') }
+        //         , function(){ alertify.error('Cancel')});
          alertify.set('notifier','position', 'top-right');
          alertify.success(data);
          $('#submit').attr("disabled", false);

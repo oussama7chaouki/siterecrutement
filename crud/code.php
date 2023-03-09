@@ -1,10 +1,10 @@
 <?php
 
-require 'dbcon1.php';
-$con = config::connect(); // The :: notation is used to call a static method on a class
+// require 'dbcon1.php';
+// $con = config::connect(); // The :: notation is used to call a static method on a class
+require('userid.php');
 if(isset($_POST['save_formation']))
 {
-    $user_id=3;
     $formation = $_POST['formation'];
     $school = $_POST['school'];
     $startyear = $_POST['startyear'];

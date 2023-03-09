@@ -1,5 +1,6 @@
 <?php
 //index.php
+require('userid1.php');
 ?>
 <style>
   .close{
@@ -15,7 +16,7 @@
       <form method="post" id="programmer_form">
        <div class="form-group">
        <?php
-                            $stmt = $con->query("SELECT * FROM skills where user_id='3'");
+                            $stmt = $con->query("SELECT * FROM skills where user_id='$user_id'");
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             // Get the total number of contacts, this is so we can determine whether there should be a next and previous button

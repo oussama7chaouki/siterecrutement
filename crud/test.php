@@ -1,4 +1,5 @@
 <!--addmodal -->
+
 <div class="modal fade" id="experienceAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -127,8 +128,7 @@
                         </thead>
                         <tbody>
                             <?php
-                          $user_id=3;
-                            $stmt = $con->query("SELECT * FROM experiences where user_id='3'");
+                            $stmt = $con->query("SELECT * FROM experiences where user_id='$user_id'");
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

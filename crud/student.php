@@ -1,8 +1,10 @@
 <?php
 
 session_start();
-
-
+if(!isset($_SESSION['username'])){header("location:../login.php");
+    exit;
+  }
+  require "userid.php"
 ?>
 <!doctype html>
 <html lang="en">
@@ -184,11 +186,11 @@ session_start();
                         </thead>
                         <tbody>
                             <?php
-                            require 'dbcon1.php';
-                            $con = config::connect(); // The :: notation is used to call a static method on a class
-                            $user_id=3;
+                            // require 'dbcon1.php';
+                            // $con = config::connect(); // The :: notation is used to call a static method on a class
+                            // $user_id=3;
                             
-                            $stmt = $con->query("SELECT * FROM formations where user_id='3'");
+                            $stmt = $con->query("SELECT * FROM formations where user_id='$user_id'");
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
