@@ -11,7 +11,7 @@ session_start();
   <meta charset="UTF-8">
   <title>CodePen - Card Inspirations (#5)</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="../header.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
@@ -20,10 +20,10 @@ session_start();
 
 <a href="#" class="logo">LOGO</a>
 <nav class="nav">
-<li class="nav-item">
-    <a href=""> <?php echo 'hello ' .$_SESSION['username']; ?></a> 
-                <a href="../index.html">
-              <button type="button" class="btn btn-rounded mx-2" style="background-color: #338573; color: white">LOGOUT</button>
+<li class="nav-item"> 
+    <!-- <a href=""> <?php // echo 'hello ' .$_SESSION['username']; ?></a> -->
+                <a href="../logout.php">
+              <button  type="button" class="btn btn-rounded mx-2 ripple-surface" style="background-color: #338573; color: white">LOGOUT</button>
                </a> 
             </li>
 

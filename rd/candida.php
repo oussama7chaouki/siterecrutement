@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+$user_id=3;
 
 ?>
 <!doctype html>
@@ -37,10 +37,10 @@ session_start();
 
 <a href="#" class="logo">LOGO</a>
 <nav class="nav">
-<li class="nav-item">
-    <a href=""> <?php echo 'hello ' .$_SESSION['username']; ?></a> 
-                <a href="../index.html">
-              <button type="button" class="btn btn-rounded mx-2" style="background-color: #338573; color: white">LOGOUT</button>
+<li class="nav-item"> 
+    <!-- <a href=""> <?php // echo 'hello ' .$_SESSION['username']; ?></a> -->
+                <a href="../logout.php">
+              <button  type="button" class="btn btn-rounded mx-2 ripple-surface" style="background-color: #338573; color: white">LOGOUT</button>
                </a> 
             </li>
 
@@ -110,7 +110,7 @@ session_start();
                             $con = config::connect(); // The :: notation is used to call a static method on a class
                             $user_id=3;
                             
-                            $stmt = $con->query("SELECT * FROM candidature where user_id='3'");
+                            $stmt = $con->query("SELECT * FROM candidature where user_id='$user_id'");
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

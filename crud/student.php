@@ -39,10 +39,10 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
 
 <a href="#" class="logo">LOGO</a>
 <nav class="nav">
-<li class="nav-item">
-    <a href=""> <?php echo 'hello ' .$_SESSION['username']; ?></a> 
-                <a href="../index.html">
-              <button type="button" class="btn btn-rounded mx-2" style="background-color: #338573; color: white">LOGOUT</button>
+<li class="nav-item"> 
+    <!-- <a href=""> <?php // echo 'hello ' .$_SESSION['username']; ?></a> -->
+                <a href="../logout.php">
+              <button  type="button" class="btn btn-rounded mx-2 ripple-surface" style="background-color: #338573; color: white">LOGOUT</button>
                </a> 
             </li>
 

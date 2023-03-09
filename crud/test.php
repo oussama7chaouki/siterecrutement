@@ -51,7 +51,7 @@
 
                 <div id="errorMessageUpdate1" class="alert alert-warning d-none"></div>
 
-                <input type="text" name="experience_id" id="experience_id" >
+                <input type="text" name="experience_id" id="experience_id" hidden>
 
                 <div class="mb-3">
                     <label for="">experience</label>

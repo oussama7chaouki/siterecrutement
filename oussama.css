@@ -144,14 +144,14 @@ header{
     justify-content: space-between;
     padding: 10px 200px;
     align-items: center;
-  
+  font-family: Poppins,sans-serif;
   }
   .logo{
       text-decoration: none;
       color: #338573;
       text-transform: uppercase;
       font-weight: 600;
-      font-size: 1.7em;
+      font-size: 1.7rem;
   
   }
   .nav a{
@@ -161,6 +161,11 @@ header{
       font-weight: 450;
       padding-left: 30px;
    
+  }
+  nav button{
+    font-size: 0.9em!important;
+    padding: 16px;
+
   }
   
   .nav a:hover{
@@ -259,4 +264,15 @@ footer h4{
   .slider__wrapper{
     display: none;
   }
+}
+.btn-rounded {
+  border-radius: 10rem;
+  -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+}
+.ripple-surface {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
 }

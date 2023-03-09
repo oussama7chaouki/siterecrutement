@@ -16,10 +16,12 @@ if(!isset($_SESSION['username'])){header("location:login.php");
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="oussama.css">
+    <link rel="stylesheet" href="header.css">
     <!-- <link rel="stylesheet" href="index.css"> -->
     <script defer src="test.js"></script>
     <!-- include tweenlight -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
 
 </head>
 <body>
@@ -27,10 +29,10 @@ if(!isset($_SESSION['username'])){header("location:login.php");
 
 <a href="#" class="logo">LOGO</a>
 <nav class="nav">
-<li class="nav-item">
-    <a href=""> <?php echo 'hello ' .$_SESSION['username']; ?></a> 
+<li class="nav-item"> 
+    <!-- <a href=""> <?php // echo 'hello ' .$_SESSION['username']; ?></a> -->
                 <a href="logout.php">
-              <button  type="button" class="btn btn-rounded mx-2" style="background-color: #338573; color: white">LOGOUT</button>
+              <button  type="button" class="btn btn-rounded mx-2 ripple-surface" style="background-color: #338573; color: white">LOGOUT</button>
                </a> 
             </li>
 
