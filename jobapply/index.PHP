@@ -17,7 +17,9 @@ session_start();
 </head>
 <body>
 <header>
-
+<?php 
+include'../sidebar.php'
+?>
 <a href="#" class="logo">LOGO</a>
 <nav class="nav">
 <li class="nav-item"> 

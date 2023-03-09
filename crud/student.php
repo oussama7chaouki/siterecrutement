@@ -33,8 +33,14 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
     }
 </style>
     <!-- INPUT -->
+    <!-- <link rel="stylesheet" href="../sidebar.css"> -->
 </head>
+
 <body>
+ <?php
+  include '../sidebar.php';
+  ?>
+  <section>
 <header>
 
 <a href="#" class="logo">LOGO</a>
@@ -228,7 +234,7 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
         </div>
     </div>
 </div>
-
+</section>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -33,6 +33,10 @@ $user_id=3;
     <!-- INPUT -->
 </head>
 <body>
+<?php 
+include'../sidebar.php'
+?>
+<section>
 <header>
 
 <a href="#" class="logo">LOGO</a>
@@ -140,7 +144,7 @@ $user_id=3;
         </div>
     </div>
 </div>
-
+</section>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
