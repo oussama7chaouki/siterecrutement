@@ -3,7 +3,7 @@
 
 session_start();
 
-
+$domain="informatique";
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -16,10 +16,12 @@ session_start();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-<header>
+
 <?php 
 include'../sidebar.php'
 ?>
+<section>
+<header>
 <a href="#" class="logo">LOGO</a>
 <nav class="nav">
 <li class="nav-item"> 
@@ -32,7 +34,8 @@ include'../sidebar.php'
 </nav>
 
 </header>
-   <div id="body">
+   <!-- <div id="body"> -->
+   <div class="container mt-4" id="body">
 
 
   <?php
@@ -40,7 +43,7 @@ include'../sidebar.php'
                             $con = config::connect(); // The :: notation is used to call a static method on a class
                             $user_id=3;
                             
-                            $stmt = $con->query("SELECT * FROM jobs WHERE id_jobs NOT IN (SELECT id_jobs from candidature)");
+                            $stmt = $con->query("SELECT * FROM jobs WHERE id_jobs NOT IN (SELECT id_jobs from candidature) and domain='$domain'");
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -78,7 +81,7 @@ include'../sidebar.php'
 
 
 
-</div>
+</div></section>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="candida.js"></script>
