@@ -14,9 +14,9 @@
          <ul class="nav-links" style="margin-left: -16px;">
             <li> <a href="#"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
             <li> <a href="#"><i class="fa fa-briefcase"></i><span>Mon Cv</span></a></li>
-            <li> <a href="#"><i class="fa fa-bullhorn"></i><span>demandes</span></a></li>
-            <li> <a href="#"><i class="fa fa-thumb-tack"></i><span>Candidatures</span></a></li>
-            <li> <a href="#"><i class="fa fa-user-circle"></i><span>Mon Compte</span></a></li>
+            <li> <a href="<?php echo "/".basename(dirname(__FILE__))."/jobapply/index.PHP" ?>"><i class="fa fa-bullhorn"></i><span>demandes</span></a></li>
+            <li> <a href="<?php echo "/".basename(dirname(__FILE__))."/rd/candida.php" ?>"><i class="fa fa-thumb-tack"></i><span>Candidatures</span></a></li>
+            <li> <a href="<?php echo "/".basename(dirname(__FILE__))."/crud/student.php" ?>"><i class="fa fa-user-circle"></i><span>Mon Compte</span></a></li>
             <li> <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
             <div class="active"></div>
          </ul>
