@@ -43,7 +43,7 @@ include'../sidebar.php'
                             $con = config::connect(); // The :: notation is used to call a static method on a class
                             $user_id=3;
                             
-                            $stmt = $con->query("SELECT * FROM jobs WHERE id_jobs NOT IN (SELECT id_jobs from candidature) and domain='$domain'");
+                            $stmt = $con->query("SELECT * FROM jobs WHERE id_job NOT IN (SELECT id_jobs from candidature) and domain='$domain'");
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -52,7 +52,7 @@ include'../sidebar.php'
                                 {
                                     ?>
                                     <!-- partial -->
-<div class="card my-3 offer" data-id="<?= $jobs['id_jobs'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>">
+<div class="card my-3 offer" data-id="<?= $jobs['id_job'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>">
   <!-- <div class="card__img-container">
     <img class="card__img" src="//unsplash.it/400" alt="Unsplash random image" />
   </div> -->

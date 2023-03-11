@@ -42,7 +42,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
 <a href="#" class="logo">LOGO</a>
 <nav class="nav">
 <li class="nav-item">
-                <a href="index.html">
+                <a href="index.php">
               <button type="button" class="btn btn-rounded mx-2" style="background-color: #338573; color: white">Home</button>
                </a>  
             </li>
