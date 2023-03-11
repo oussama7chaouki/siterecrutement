@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$user_id=3;
+require "../user_id.php";
 
 ?>
 <!doctype html>
@@ -110,9 +110,9 @@ include'../sidebar.php'
                         </thead>
                         <tbody>
                             <?php
-                            require 'dbcon1.php';
-                            $con = config::connect(); // The :: notation is used to call a static method on a class
-                            $user_id=3;
+                            // require 'dbcon1.php';
+                            // $con = config::connect(); // The :: notation is used to call a static method on a class
+                            // $user_id=70;
                             
                             $stmt = $con->query("SELECT * FROM candidature where user_id='$user_id'");
                             // $stmt->bindParam(":user_id",$user_id);

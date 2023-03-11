@@ -1,11 +1,12 @@
 <?php
 session_start();
-require 'dbcon1.php';
-$con = config::connect(); // The :: notation is used to call a static method on a class
-// if(isset($_POST['save_apply']))
-// {
+// require 'dbcon1.php';
+// $con = config::connect(); // The :: notation is used to call a static method on a class
+// // if(isset($_POST['save_apply']))
+// // {
     
-    $user_id=3;
+//     $user_id=70;
+require "../user_id.php";
     // $candidature = $_POST['candidature'];
     $id_jobs = $_POST['id'];
     $job_title = $_POST['title'];
@@ -23,7 +24,7 @@ $con = config::connect(); // The :: notation is used to call a static method on 
     }
 
     $query = $con->prepare(" 
-    INSERT INTO candidature (user_id, id_jobs, job_title,company)
+    INSERT INTO candidature (user_id, id_job, job_title,company)
                              VALUES ($user_id, :id_jobs, :job_title,:company)
                              ");
     $query->bindParam(":id_jobs",$id_jobs);

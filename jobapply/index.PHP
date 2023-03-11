@@ -39,11 +39,20 @@ include'../sidebar.php'
 
 
   <?php
-                            require 'dbcon1.php';
-                            $con = config::connect(); // The :: notation is used to call a static method on a class
-                            $user_id=3;
-                            
-                            $stmt = $con->query("SELECT * FROM jobs WHERE id_job NOT IN (SELECT id_jobs from candidature) and domain='$domain'");
+                            // require 'dbcon1.php';
+                            // $con = config::connect(); // The :: notation is used to call a static method on a class
+                            // $user_id=70;
+                            require "../user_id.php";
+
+                            $stmt = $con->query("SELECT *
+                            FROM jobs
+                            WHERE domain = 'informatique'
+                            AND id_job NOT IN (
+                              SELECT id_job
+                              FROM candidature
+                              WHERE user_id = $user_id
+                            )
+                            ");
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
