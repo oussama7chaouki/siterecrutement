@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
+if(!isset($_SESSION['usernamerec'])){header("location:loginrecruter.php");
    exit;
  }
 

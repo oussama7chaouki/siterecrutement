@@ -57,7 +57,7 @@ else{
 
 
  if(insert($con,$username,$email,$password, $re_password,$name)){ ;
-     $_SESSION['username']=$username;
+     $_SESSION['usernamerec']=$username;
      header("location:profilrecruter.php");
  }
 
