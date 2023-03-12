@@ -1,4 +1,6 @@
 $('.accept').click(function() {
+  var row = $(this).closest('tr');
+  var decisionCell = row.find('.decision');
     var id_candidature = $(this).data('id_candidature');
     var user_id = $(this).data('user_id');
     console.log(id_candidature);
@@ -13,6 +15,9 @@ $('.accept').click(function() {
       dataType: 'json',
       success: function(response) {
         // Display success message
+        if(response.status==200){
+          decisionCell.text('Accepted');
+        }
         alert(response.message);
         // Update decision in table
         // $('button[data-id="' + candidateId + '"]').closest('tr').find('.decision').text('Accepted');
@@ -25,6 +30,8 @@ $('.accept').click(function() {
   });
   
   $('.reject').click(function() {
+    var row = $(this).closest('tr');
+    var decisionCell = row.find('.decision');
     var id_candidature = $(this).data('id_candidature');
     var user_id = $(this).data('user_id');
         // Call AJAX endpoint to reject candidate
@@ -35,7 +42,10 @@ $('.accept').click(function() {
       dataType: 'json',
       success: function(response) {
         // Display success message
-        $('#myTable4').load(location.href + " #myTable4");
+        // $('#myTable4').load(location.href+ " #myTable4");
+        if(response.status==200){
+          decisionCell.text('Rejected');
+        }
         alert(response.message);
         // Update decision in table
         // $('button[data-id="' + candidateId + '"]').closest('tr').find('.decision').text('Rejected')

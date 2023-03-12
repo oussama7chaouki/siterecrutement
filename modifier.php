@@ -83,33 +83,33 @@ include_once("config.php"); // function class
           <div class="mb-2 ">
             
             <label for="nom" class="form-label text-muted">Nom <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="nom"  name="nom">
+            <input type="text" class="form-control" id="nom"  name="nom" value="<?= $_SESSION['nom']?>">
             <span id="span1"></span>
           </div>
           <br>
           
           <div class="mb-1">
             <label for="prenom" class="form-label text-muted">Prenom <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="prenom" name="prenom" >
+            <input type="text" class="form-control" id="prenom" name="prenom" value="<?= $_SESSION['prenom']?>">
             <span id="span2"></span>
           </div>
        <br>
           <div class="mb-1">
             <label for="date" class="form-label text-muted">Date de naissance <span class="text-danger">*</span></label>
-            <input type="date" class="form-control" id="date" name="date" >
+            <input type="date" class="form-control" id="date" name="date" value="<?= $_SESSION['date']?>">
             <span id="span5"></span>
           </div>
           <br>
           <div class="mb-1">
             <label for="text" class="form-label text-muted">Ville <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="ville" name="ville">
+            <input type="text" class="form-control" id="ville" name="ville" value="<?= $_SESSION['ville']?>">
             <span id="span4"></span>
           </div>
           <br>
           <div class="mb-1">
             <label for="tel" class="form-label text-muted" >phone number <span class="text-danger">*</span></label>
            
-            <input type="tel" class="form-control"  name="tel" id="tel" placeholder="&#x1F1F2;&#x1F1E6;+212">
+            <input type="tel" class="form-control"  name="tel" id="tel" placeholder="&#x1F1F2;&#x1F1E6;+212" value="<?= $_SESSION['tel']?>">
             <span id="span3"></span>
       
           </div>

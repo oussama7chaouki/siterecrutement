@@ -144,7 +144,7 @@ include'../../sidebarrec.php'
                                         <td><?= $job['username'] ?></td>
                                         <td><?= $job['email'] ?></td>
                                         <td>100%</td>
-                                        <td><?= $job['status'] ?></td>
+                                        <td class="decision"><?= $job['status'] ?></td>
 
                                         <td>
                                             <button type="button" data-user-id="<?=$job['id'];?>" class=" btn btn-info btn-sm view-user" >View</button>

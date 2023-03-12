@@ -58,7 +58,7 @@ else{
 
  if(insert($con,$username,$email,$password, $re_password,$name)){ ;
      $_SESSION['username']=$username;
-     header("location:profil.php");
+     header("location:profilcandidat.php");
  }
 
 }

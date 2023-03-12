@@ -54,9 +54,12 @@ $ville=$datas['ville'];
 
  $_SESSION['nom']=$nom;
  $_SESSION['prenom']=$prenom;
- $_SESSION['date']=$date;// Replace with the actual date of birth
+ $_SESSION['date']=$date;
  $_SESSION['ville']=$ville;
-  
+ $_SESSION['tel']=$tel;
+ $_SESSION['genre']=$genre;
+
+
 
 
 ?>

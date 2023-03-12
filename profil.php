@@ -4,8 +4,14 @@ session_start();
 if (!isset($_SESSION['username'])) {
    header("location:login.php");
 }
-
-
+require 'user_id.php';
+$query = $con->prepare("
+SELECT * FROM `information`,users WHERE `user_id`=id and user_id=$user_id");
+$query->execute();
+$count = $query->rowCount();
+if($count<1){
+   header("location:profilcandidat.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
