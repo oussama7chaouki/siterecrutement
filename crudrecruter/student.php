@@ -38,7 +38,7 @@ if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
 
 <body>
  <?php
-  include '../sidebar.php';
+  include '../sidebarrec.php';
   ?>
   <section>
 <header>

@@ -30,7 +30,7 @@ if(!isset($_SESSION['usernamerec'])){header("location:loginrecruter.php");
 
 <body>
  <?php
-  include 'sidebar.php';
+  include 'sidebarrec.php';
   ?>
 <section>
    <header>
@@ -57,7 +57,7 @@ if(!isset($_SESSION['usernamerec'])){header("location:loginrecruter.php");
    <div class="content">
       <!-- card -->
       <div class="card">
-         <a href="crud\student.php">
+         <a href="#">
             <div class="icon"><i class="material-icons md-36"><img src="resume (2).png" alt=""></i></div>
             <p class="title">Profile</p>
             <p class="text">Click to see or edit your profile page.</p>

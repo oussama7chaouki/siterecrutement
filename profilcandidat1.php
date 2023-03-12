@@ -33,6 +33,11 @@ include_once("user_id.php"); // function class
 $query = $con->prepare("
 SELECT information.*,email FROM `information`,users WHERE `user_id`=id and user_id=$user_id");
 $query->execute();
+$count = $query->rowCount();
+if($count<1){
+  header("location:profilcandidat.php");
+  exit();
+}
 $datas=$query->fetchAll(PDO::FETCH_ASSOC);
 $datas=$datas[0];
 // print_r($datas) ;
