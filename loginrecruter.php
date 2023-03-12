@@ -368,5 +368,19 @@ if (errorMessage2 !== null && performance.navigation.type === 1) {
 errorMessage2.remove();
 }
 </script>
+<script>
+  tabregister=document.getElementById("tab-register");
+tablogin=document.getElementById("tab-login");
+pillslogin=document.getElementById("pills-login");
+pillsregistre=document.getElementById("pills-register");
+  if(localStorage.getItem('signup')==='true'){
+    tabregister.classList.add("active");
+        pillsregistre.classList.add("show","active");
+  }
+  else{
+    tablogin.classList.add("active");
+    pillslogin.classList.add("show","active");
+  }
+</script>
 </body>
 </html>

@@ -252,17 +252,17 @@ if(isset($_SESSION['username'])){header("location:profil.php");
 </div>
 <!-- Pills content -->
 <!-- MDB -->
-<footer class="#338573 text-center text-lg-start" style="z-index:1; botttom: 0; position: relative;">
+<footer class="#338573 text-center text-lg-start" style="z-index:1; bottom: 0; position: relative;">
         <!-- Grid container -->
         <div class="container p-4">
           <!--Grid row-->
           <div class="row alignFooter">
             <!--Grid column-->
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-              <h5 class="text-uppercase text-light">HireTech</h5>
+              <h5 class="text-uppercase text-light">JOBS</h5>
       
               <p class="text-light">
-                  A single service which can be used by everyone ranging from the interviewees to the HR.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quisquam ullam suscipit temporibus, fugit dicta nihil hic reiciendis. Officia deserunt unde perferendis animi error veniam incidunt mollitia iste fuga? Distinctio!
               </p>
             </div>
             <!--Grid column-->
@@ -289,7 +289,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
             <a
               class="btn btn-primary btn-floating m-1"
               style="background-color: #3b5998;"
-              href="https://www.facebook.com/pillaisalegria"
+              href="#"
               role="button"
               ><i class="fab fa-facebook-f"></i
             ></a>
@@ -298,7 +298,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
             <a
               class="btn btn-primary btn-floating m-1"
               style="background-color: #55acee;"
-              href="https://twitter.com/PillaisAlegria?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+              href="#"
               role="button"
               ><i class="fab fa-twitter"></i
             ></a>
@@ -307,7 +307,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
             <a
               class="btn btn-primary btn-floating m-1"
               style="background-color: #dd4b39;"
-              href="https://www.google.com/search?rlz=1C1SQJL_enIN939IN939&sxsrf=ALeKk02FFtVGhm4I56WBc75Wo0ERSPjYGg%3A1614751870764&ei=fig_YLaGLsKZ4-EPkOuYkAw&q=alegria+the+festival+of+joy&oq=Alegria+the+fes&gs_lcp=Cgdnd3Mtd2l6EAEYADIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeOgcIIxCwAxAnOg0ILhDHARCvARCwAxAnOgcIABBHELADOgQIIxAnOgoILhDHARCvARAnOgQIABBDOgIIADoICC4QxwEQrwE6BwgAELEDEAo6DQgAELEDEIMBEMkDEAo6BAgAEAo6BQguEJMCOgkIABDJAxAWEB46CAgAEBYQChAeUMYzWOVMYIZXaAFwAngAgAGTAYgBmAmSAQMwLjmYAQCgAQGqAQdnd3Mtd2l6yAEKwAEB&sclient=gws-wiz"
+              href="#"
               role="button"
               ><i class="fab fa-google"></i
             ></a>
@@ -316,7 +316,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
             <a
               class="btn btn-primary btn-floating m-1"
               style="background-color: #ac2bac;"
-              href="https://www.instagram.com/pillaisalegria/?hl=en"
+              href="#"
               role="button"
               ><i class="fab fa-instagram"></i
             ></a>
@@ -324,7 +324,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
             <a
               class="btn btn-primary btn-floating m-1"
               style="background-color: #333333;"
-              href="#!"
+              href="#"
               role="button"
               ><i class="fab fa-github"></i
             ></a>
@@ -334,8 +334,8 @@ if(isset($_SESSION['username'])){header("location:profil.php");
         <!-- Grid container -->
         <!-- Copyright -->
         <div class="text-center p-3 text-light" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2020 Copyright:
-          <a class="text-light" href="https://mdbootstrap.com/"><i class="fas fa-lightbulb"></i> HierTech Solutions </a>
+          © 2023 Copyright:
+          <i class="fas fa-lightbulb"></i> JOBS </div>
 <script
   type="text/javascript"
   src="mdb.min.js"
@@ -367,6 +367,20 @@ errorMessage1.remove();
 if (errorMessage2 !== null && performance.navigation.type === 1) {
 errorMessage2.remove();
 }
+</script>
+<script>
+  tabregister=document.getElementById("tab-register");
+tablogin=document.getElementById("tab-login");
+pillslogin=document.getElementById("pills-login");
+pillsregistre=document.getElementById("pills-register");
+  if(localStorage.getItem('signup')==='true'){
+    tabregister.classList.add("active");
+        pillsregistre.classList.add("show","active");
+  }
+  else{
+    tablogin.classList.add("active");
+    pillslogin.classList.add("show","active");
+  }
 </script>
 </body>
 </html>

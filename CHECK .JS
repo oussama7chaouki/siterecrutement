@@ -2,8 +2,11 @@ tabregister=document.getElementById("tab-register");
 tablogin=document.getElementById("tab-login");
 pillslogin=document.getElementById("pills-login");
 pillsregistre=document.getElementById("pills-register");
+if(!localStorage.get('testeur')){
+  localStorage.setItem('testeur',false);
+}
 if (window.location.href.indexOf('?error') > -1) {
-    if( localStorage.getItem('testeur')==='true'){
+    if( localStorage.getItem('signup')==='true'){
         tablogin.classList.remove("active");
         tabregister.classList.add("active");
         // console.log("hello");
@@ -27,12 +30,15 @@ if (window.location.href.indexOf('?error') > -1) {
 
 function outesteur(){
  if(tabregister.classList.contains("active")){
-    localStorage.setItem('testeur',true);
+    localStorage.setItem('signup',true);
 } 
 else{
-    localStorage.setItem('testeur',false);
+    localStorage.setItem('signup',false);
 }
 }
+
+
+
 
 // outesteur();
 

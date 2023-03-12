@@ -38,7 +38,7 @@ header{
 }
 .main{
   
-    height: 70vh;
+    /* height: 70vh; */
     background-color: #C4F2FF;
     position: relative;
     width: 100%;
@@ -127,16 +127,16 @@ color: #616161;
 /*second section*/
 .main2{
 
- height: 70vh;
- position: relative;
- top: 120px;
-
+ /* height: 70vh; */
+ /* position: relative; */
+ /* top: 120px; */
+display: flex;
 
 }
 .main2 img{
-    position: absolute;
+    /* position: absolute;
     right: 100px;
-    bottom: 190px;
+    bottom: 190px; */
     
    
 }
@@ -147,10 +147,10 @@ color: #616161;
 .main2 div{
     width: 100%;
     height: 100%;
- position: absolute;
+ /* position: absolute;
  top: 50%;
  left: 0;
- transform: translate(0,-50%);
+ transform: translate(0,-50%); */
 
 }
 .main2 h2{
@@ -161,7 +161,8 @@ font-weight: 700;
 font-size: 40px;
 line-height: 65px;
 margin-left: 41px;
-line-height: 100px;
+/* line-height: 100px; */
+margin-block: 50px;
 }
 .main2 h3{
 
