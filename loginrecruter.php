@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if(isset($_SESSION['username'])){header("location:profil.php");
+if(isset($_SESSION['usernamerec'])){header("location:profil.php");
 }
 
 

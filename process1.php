@@ -86,7 +86,7 @@ if (isset($_POST['signin'])) {
 
 if(checklogin($con,$username,$password)){
 
-    $_SESSION['username']=$username;
+    $_SESSION['usernamerec']=$username;
      header("location:profilrecruter.php");
 
 }else{

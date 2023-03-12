@@ -25,7 +25,7 @@
    <li class="nav-item">
       <!-- <a href=""> <?php // echo 'hello ' .$_SESSION['username']; 
                         ?></a> -->
-      <a href="../logout.php">
+      <a href="../logoutrec.php">
          <button type="button" class="btn btn-rounded mx-2 ripple-surface" style="background-color: #338573; color: white">LOGOUT</button>
       </a>
    </li>
@@ -33,16 +33,35 @@
 </nav>
 
 </header>
+<?php 
+require 'APPLICATION\userid.php';
+ $stmt = $con->query("SELECT * FROM `jobs` WHERE `recruter_id`=$recruter_id");
+ // $stmt->bindParam(":recruter_id",$recruter_id);
+ $stmt->execute();
+ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+ // Get the total number of contacts, this is so we can determine whether there should be a next and previous button
+     foreach($data as $job)
+     {
+      $id_job=$job['id_job'];
+      $stmt1 = $con->query("SELECT count(*) FROM `candidature` WHERE `id_job`=$id_job");
+      // $stmt->bindParam(":recruter_id",$recruter_id);
+      $stmt1->execute();
+      $count = $stmt1->fetchColumn();
+?>
 <div class="card mx-auto mt-5" style="width:70%" >
   <div class="card-header">
-    ID JOB
-  </div>
+  <?=$job['date']?>
+</div>
   <div class="card-body">
-    <h5 class="card-title">JOB TITLE</h5>
-    <p class="card-text">100 APPLICANT</p>
-    <a href="APPLICATION\index.php" class="btn btn-primary" >Go somewhere</a>
+    <h5 class="card-title"><?=$job['job_title']?> / <?=$job['domain']?></h5>
+    <p class="card-text" style="font-size: 0.8em;">  <img src="../image\candidate (4).png" alt="applicant"> <?=$count?> APPLICANT</p>
+    <a href="APPLICATION\index.php?id_job=<?=$id_job?>" class="btn btn-primary" >See candidate</a>
   </div>
-</div></section>
+</div>
+<?php
+                                }
+                            ?>
+                            </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

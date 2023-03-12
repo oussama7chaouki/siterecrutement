@@ -2,7 +2,7 @@
                             require 'dbcon1.php';
                             $con = config::connect(); // The :: notation is used to call a static method on a class
 session_start();
-if(!isset($_SESSION['username'])){header("location:../login.php");
+if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
     exit;
   }
 

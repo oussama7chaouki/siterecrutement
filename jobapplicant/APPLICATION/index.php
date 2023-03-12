@@ -1,8 +1,16 @@
 <?php
 
 session_start();
-$user_id=3;//
+// $user_id=3;//
 //  $idcandidature=$_SESSION['idc'];
+
+if(!isset($_GET['id_job'])){
+    header("location:../jobapplicant.php");
+    exit;
+}
+else{
+    $id_job=$_GET['id_job'];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,7 +59,7 @@ include'../../sidebar.php'
 <nav class="nav">
 <li class="nav-item"> 
     <!-- <a href=""> <?php // echo 'hello ' .$_SESSION['username']; ?></a> -->
-                <a href="../../logout.php">
+                <a href="../../logoutrec.php">
               <button  type="button" class="btn btn-rounded mx-2 ripple-surface" style="background-color: #338573; color: white">LOGOUT</button>
                </a> 
             </li>
@@ -124,7 +132,7 @@ include'../../sidebar.php'
                              $con = config::connect(); // The :: notation is used to call a static method on a class
                             // $recruter_id=3;
       
-                            $stmt = $con->query("SELECT users.*, candidature.`id_candidature`,candidature.`status` FROM users INNER JOIN candidature ON users.id = candidature.user_id WHERE candidature.`id_job` = 10;");
+                            $stmt = $con->query("SELECT users.*, candidature.`id_candidature`,candidature.`status` FROM users INNER JOIN candidature ON users.id = candidature.user_id WHERE candidature.`id_job` = $id_job");
                             // $stmt->bindParam(":recruter_id",$recruter_id);
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

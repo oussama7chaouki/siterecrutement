@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['username'])){header("location:../login.php");
+if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
     exit;
   }
   require "userid.php"
@@ -47,7 +47,7 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
 <nav class="nav">
 <li class="nav-item"> 
     <!-- <a href=""> <?php // echo 'hello ' .$_SESSION['username']; ?></a> -->
-                <a href="../logout.php">
+                <a href="../logoutrec.php">
               <button  type="button" class="btn btn-rounded mx-2 ripple-surface" style="background-color: #338573; color: white">LOGOUT</button>
                </a> 
             </li>
