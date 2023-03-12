@@ -1,0 +1,7 @@
+:root{
+    --offcanvas-horizontal-width:        900px;
+}
+
+.offcanvas {
+    width: 80%
+  }
