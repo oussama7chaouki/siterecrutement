@@ -124,7 +124,7 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
                                         <!-- <td>?= $job['domain'] ?></td>
                                         <td>?= $job['date'] ?></td> -->
                                         <td>
-                                            <button type="button" value="<?=$job['id'];?>" class="viewjobBtn btn btn-info btn-sm" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">View</button>
+                                            <button type="button" value="<?=$job['id'];?>" class="viewjobBtn btn btn-info btn-sm">View</button>
                                             <button type="button" value="<?=$job['id'];?>" class="editjobBtn btn btn-success btn-sm">Accept</button>
                                             <button type="button" value="<?=$job['id'];?>" class="deletejobBtn btn btn-danger btn-sm">Refuse</button>
                                         </td>
@@ -151,7 +151,7 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- <script src="student.js"></script> -->
 </body>
 </html>
