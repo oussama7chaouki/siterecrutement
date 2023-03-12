@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-$user_id=3;
-
+$user_id=3;//
+//  $idcandidature=$_SESSION['idc'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,7 +51,7 @@ include'../../sidebar.php'
 <nav class="nav">
 <li class="nav-item"> 
     <!-- <a href=""> <?php // echo 'hello ' .$_SESSION['username']; ?></a> -->
-                <a href="../logout.php">
+                <a href="../../logout.php">
               <button  type="button" class="btn btn-rounded mx-2 ripple-surface" style="background-color: #338573; color: white">LOGOUT</button>
                </a> 
             </li>
@@ -106,12 +106,13 @@ include'../../sidebar.php'
                 </div>
                 <div class="card-body">
 
-                    <table id="myTable" class="table table-bordered table-striped">
+                    <table id="myTable4" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                                 <th>name</th>
                                 <th>mail</th>
                                 <th>SCORE</th>
+                                <th>DECISION</th>
                                  <!-- <th>DOMAIN</th>
                                 <th>Date</th> -->
                                 <th>Action</th>
@@ -122,8 +123,8 @@ include'../../sidebar.php'
                             require 'dbcon1.php';
                              $con = config::connect(); // The :: notation is used to call a static method on a class
                             // $recruter_id=3;
-                            
-                            $stmt = $con->query("SELECT * FROM users where id in (select user_id from `candidature` where id_job='10')");
+      
+                            $stmt = $con->query("SELECT users.*, candidature.`id_candidature`,candidature.`status` FROM users INNER JOIN candidature ON users.id = candidature.user_id WHERE candidature.`id_job` = 10;");
                             // $stmt->bindParam(":recruter_id",$recruter_id);
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -135,10 +136,12 @@ include'../../sidebar.php'
                                         <td><?= $job['username'] ?></td>
                                         <td><?= $job['email'] ?></td>
                                         <td>100%</td>
+                                        <td><?= $job['status'] ?></td>
+
                                         <td>
                                             <button type="button" data-user-id="<?=$job['id'];?>" class=" btn btn-info btn-sm view-user" >View</button>
-                                            <button type="button" value="<?=$job['id'];?>" class="deletecandidatureBtn btn btn-succes btn-sm">accept</button>
-                                            <button type="button" value="<?=$job['id'];?>" class="viewcandidatureBtn btn btn-danger btn-sm">refuse</button>
+                                            <button type="button" data-user_id="<?=$job['id'];?>" class="accept btn btn-succes btn-sm" data-id_candidature="<?=$job['id_candidature']?>">accept</button>
+                                            <button type="button" data-user_id="<?=$job['id'];?>" class="reject btn btn-danger btn-sm" data-id_candidature="<?=$job['id_candidature']?>">refuse</button>
 
                                         </td>
                                     </tr>
@@ -160,6 +163,6 @@ include'../../sidebar.php'
 
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="jobapplication.js"></script>
-
+<script src="decision.js"></script>
 </body>
 </html>

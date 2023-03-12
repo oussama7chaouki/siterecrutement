@@ -74,7 +74,7 @@ if (!isset($_SESSION['username'])) {
       <!-- end card -->
       <!-- card -->
       <div class="card">
-         <a href="rd\candida.php">
+         <a href="jobapplicant\APPLICATION\index.php">
             <div class="icon"><i class="material-icons md-36"><img src="candidate.png" alt=""></i></div>
             <p class="title">application</p>
             <p class="text">delete or change your job application</p>

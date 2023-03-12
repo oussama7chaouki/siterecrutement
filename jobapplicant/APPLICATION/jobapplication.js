@@ -62,12 +62,6 @@ for (var i = 0; i < skilos.length; i++) {
           // Show offcanvas
           var userOffcanvas = new bootstrap.Offcanvas(document.querySelector('#user-details'));
           userOffcanvas.show();
-          $(userOffcanvas).on('hidden.bs.offcanvas', function () {
-            // Remove all children elements from the offcanvas container
-            $('#myTable tbody').empty();
-            $('#myTable1 tbody').empty();
-            $('.skills').empty();
-        });
         },
         error: function(xhr, status, error) {
           console.log(xhr.responseText);
