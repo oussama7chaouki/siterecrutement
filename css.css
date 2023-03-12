@@ -1,0 +1,68 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.tabs{
+
+display: flex;
+list-style: none;
+padding: 0;
+margin: 0;
+
+}
+.main{
+    padding-left: 20%;
+    padding-top: 100px;
+    padding-bottom: 70px;
+  
+}
+.tabs li{
+
+
+    padding: 5px 50px;
+    background-color: white;
+    border-right: 3px solid white;
+    cursor: pointer;
+    transition: .4s;   
+    
+}
+.tabs li.active1,
+.tabs li:hover{
+    background-color:  #f6f4f4;
+
+}
+
+.tabs li:not(.active1){
+
+
+opacity: 0.4;
+}
+.content{
+
+  
+    width: 30%;
+}
+
+.content > div {
+  padding: 20px;
+
+}
+.content > div:not(:first-child) {
+
+display: none;
+}
+.green-line {
+    position: relative;
+  }
+ 
+  
+  .green-line::before {
+    content: "";
+    position: absolute;
+    top: 0.2%;
+    left: 0%;
+    width: 100%;
+    height: 4px;
+    background-color: green;
+  }

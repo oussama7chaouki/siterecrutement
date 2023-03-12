@@ -257,4 +257,143 @@ function checkemailexist($con,$email){
 
 
 
+//**********information personnel*********
+
+
+
+
+
+
+if (isset($_POST['suivant'])) {
+  $con = config::connect(); 
+  $nom = $_POST['nom'];
+  $prenom = $_POST['prenom'];
+  $ville = $_POST['ville'];
+  $tel = $_POST['tel'];
+  $genre = isset($_POST['genre']) ? substr($_POST['genre'], 0, 50) : '';
+  $date = isset($_POST['date']) ? date('Y-m-d', strtotime($_POST['date'])) : null; // Convert date string to MySQL date format
+  $select=$_POST['select'];
+
+ 
+
+  if (insert1($con, $nom, $prenom, $ville, $date, $tel, $genre,$select)) {
+    $_SESSION['nom'] = $nom;
+    $_SESSION['prenom'] = $prenom;
+    $_SESSION['date'] = $date;
+    $_SESSION['ville'] = $ville;
+    $_SESSION['genre']=$genre;
+    $_SESSION['tel']=$tel;
+
+    echo "<script>window.location.href = 'profilcandidat1.php';</script>";
+    exit;
+  } 
+}
+
+
+function insert1($con, $nom, $prenom, $ville, $date, $tel, $genre,$select) {
+  require 'user_id1.php';
+  $query = $con->prepare("
+    INSERT INTO information (nom, prenom, ville, date, tel, genre,`select`,user_id)
+    VALUES (:nom, :prenom, :ville, :date, :tel, :genre,:select,$user_id)
+  ");
+  $query->bindParam(":nom", $nom);
+  $query->bindParam(":prenom", $prenom);
+  $query->bindParam(":ville", $ville);
+  $query->bindParam(":date", $date);
+  $query->bindParam(":tel", $tel);
+  $query->bindParam(":genre", $genre);
+  $query->bindParam(":select", $select);
+
+  try {
+    if ($query->execute()) {
+      echo "Insert query executed successfully.";
+      return true;
+    } else {
+      echo "Insert query failed.";
+      return false;
+    }
+  } catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+    return false;
+  }
+}
+
+
+
+
+
+
+
+
+
+if(isset($_POST['confirmer1'])){
+    
+  $con = config::connect(); // The :: notation is used to call a static method on a class
+
+  $nom = sanitizeString($_POST['nom']);
+  
+  $prenom = sanitizeString($_POST['prenom']);
+  $ville= sanitizeString($_POST['ville']);
+  $tel= sanitizeString($_POST['tel']);
+  $date=$_POST['date'];
+  $genre=$_POST['genre'];
+
+  require 'user_id1.php';
+  // $currentUserName=$_SESSION['nom'];
+  $query=$con->prepare("
+  SELECT id_information FROM information WHERE user_id=$user_id
+  ");
+  // $query->bindParam(":nom",$currentUserName);
+  $query->execute();
+  
+  $id_information=$query->fetchcolumn();
+  if(update1($con, $id_information ,$nom, $prenom, $ville, $date, $tel, $genre)){ ;
+     
+        $_SESSION['nom']=$nom;
+        $_SESSION['prenom']=$prenom;
+        $_SESSION['ville']=$ville;
+        $_SESSION['date']=$date;
+        $_SESSION['tel']=$tel;
+        $_SESSION['genre']=$genre;
+
+        echo "<script>window.location.href = 'profilcandidat1.php';</script>";
+        exit;
+     }
+    
+
+
+
+}
+
+
+function update1($con, $id_information ,$nom, $prenom, $ville, $date, $tel, $genre){
+
+  $query=$con->prepare("
+  
+  UPDATE information SET
+  nom=:nom,prenom=:prenom,ville=:ville,date=:date,tel=:tel,genre=:genre
+  WHERE id_information=:id_information
+  
+  ");
+
+$query->bindParam(":nom",$nom);
+$query->bindParam(":prenom",$prenom);
+$query->bindParam(":ville",$ville);
+$query->bindParam(":date",$date);
+$query->bindParam(":tel",$tel);
+$query->bindParam(":genre",$genre);
+$query->bindParam(":id_information",$id_information);
+
+
+
+return $query->execute();
+
+
+}
+
+/**************   fin process information personele         */
+
+
+
+
 ?>

@@ -2,7 +2,7 @@
 //warning cuz session open in files and not in other
 error_reporting(E_ALL & ~E_NOTICE); 
 session_start();
-                            require 'dbcon1.php';
+                            require 'config.php';
                             $con = config::connect(); // The :: notation is used to call a static method on a class
                             $username=$_SESSION['username'];
                             
