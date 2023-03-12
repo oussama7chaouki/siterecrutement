@@ -35,11 +35,11 @@
 </header>
 <div class="card mx-auto mt-5" style="width:70%" >
   <div class="card-header">
-    Featured
+    ID JOB
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <h5 class="card-title">JOB TITLE</h5>
+    <p class="card-text">100 APPLICANT</p>
     <a href="APPLICATION\index.php" class="btn btn-primary" >Go somewhere</a>
   </div>
 </div></section>
