@@ -27,7 +27,7 @@ include_once("config.php"); // function class
 <section>
 <div class="main">
 
-<div class="Up  border shadow p-4 rounded green-line" style="width: 700px;height: 100px;;margin-bottom: 40px;
+<div class="Up  border shadow p-4 rounded green-line" style="width: 700px;margin-bottom: 40px;
 ;"  >
 
 <h2 style="font-size:22px;" class="text-muted"><?php echo $_SESSION['nom']?> <?php echo $_SESSION['prenom'];?>&#x1F1F2;&#x1F1E6;<span style="font-size:15.5px">(<?php
@@ -54,7 +54,7 @@ include_once("config.php"); // function class
  <div   class="content" >
 
 
-<div  style="width: 700px;height: 850px;"   class="one  border shadow p-4 rounded">
+<div  style="width: 700px;"   class="one  border shadow p-4 rounded">
  
 
       <div class="container">
@@ -117,7 +117,7 @@ include_once("config.php"); // function class
           
         
           <hr class="my-4 blue-line">
-          <button  style="float: right;background-color: #338573; border:2px solid #338573;" type="submit" class="btn btn-primary" name="confirmer1" id="suivant" >confirmer</button>
+          <button  style="background-color: #338573; border:2px solid #338573;" type="submit" class="btn btn-primary" name="confirmer1" id="suivant" >confirmer</button>
         
        
           
@@ -125,7 +125,7 @@ include_once("config.php"); // function class
       </div>
   
   </div>
-  <div  style="width: 700px;height: 500px;"   class="two  border shadow p-4 rounded">
+  <div  style="width: 700px;"   class="two  border shadow p-4 rounded">
 
 
 
@@ -162,7 +162,7 @@ include_once("config.php"); // function class
           
         
           <hr class="my-4 blue-line">
-          <button  style="float: right;background-color: #338573; border:2px solid #338573;" type="submit" class="btn btn-primary" name="confirmer2" id="suivant" >confirmer</button>
+          <button  style="background-color: #338573; border:2px solid #338573;" type="submit" class="btn btn-primary" name="confirmer2" id="suivant" >confirmer</button>
         
         </form>
       

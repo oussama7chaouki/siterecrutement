@@ -65,7 +65,7 @@ $ville=$datas['ville'];
 ?>
 
 <div class="container green-line">
-  <div class="border shadow p-3 rounded"  style="height:590px;"  action="process.php" method="post" id="myform">
+  <div class="border shadow p-3 rounded mb-5"   action="process.php" method="post" id="myform">
     <h2 style="font-size:22px;" class="text-muted"><?=$nom?> <?=$prenom?>&#x1F1F2;&#x1F1E6;<span style="font-size:15.5px">(<?php
     
     

@@ -92,16 +92,17 @@ echo "hello";
                                 {
                                     ?>
                                     <!-- partial -->
-<div class="card my-3 offer" data-id="<?= $jobs['id_job'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>">
-  <!-- <div class="card__img-container">
-    <img class="card__img" src="//unsplash.it/400" alt="Unsplash random image" />
-  </div> -->
+<div class="card my-3 offer" style="border-radius:5em"  data-id="<?= $jobs['id_job'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>">
+
   <div class="card__header">
-                                   <h2 class="card__title"><?= $jobs['company'] ?></h2>
+    <div class="card__img-container" style="float:right">
+    <img class="card__img" src="//unsplash.it/400" alt="Unsplash random image" />
+  </div>                              
+     <h2 class="card__title"><?= $jobs['company'] ?></h2>
                                         <h3 class="card__subtitle"><?= $jobs['job_title'] ?></h3></div>
                                         <div class="card__body flow">
     <p><?= $jobs['job_description'] ?></p>
-    <p>Salaire: <?= $jobs['job_salaire'] ?>
+    <p>Salaire: <?= $jobs['job_salaire'] ?> DH/MOIS
     </p>
     <div class="oucard">
     <button class="card__cta apply-button">

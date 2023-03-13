@@ -92,19 +92,7 @@ if($count<1){
 
    </div>
    </div>
-   <footer>
-      <h4>© 2022 Jobs Portal. </h4>
-
-      <div class="foot">
-         <a href="#">CONTACT US</a>
-         <a href="#">LOGIN</a>
-         <a href="#">SIGN UP</a>
-
-      </div>
-
-
-
-   </footer>
+  <?php //include'footer.php'?>
    </section>
 
 </body>
