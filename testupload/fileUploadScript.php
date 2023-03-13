@@ -14,10 +14,10 @@ require "../user_id.php";
          $fileext = pathinfo($filename,PATHINFO_EXTENSION);
          $maxSize = 10485760; 
       if(!in_array($fileext,$allowed)) {
-      header('Location: index.html?error=PLEASE Enter a PDF,DOC,DoCX!');
+      header('Location: index.php?error=PLEASE Enter a PDF,DOC,DoCX!');
       exit;}
             if($filesize > $maxSize){
-            header('Location: index.html?error=file should be less than 10MB');
+            header('Location: index.php?error=file should be less than 10MB');
             exit;}
                    if(in_array($fileext,$allowed)){ 
          $cvname=$username.".".$fileext;

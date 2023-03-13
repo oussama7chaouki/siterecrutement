@@ -3,17 +3,17 @@
 
 session_start();
 
-$domain="informatique";
 ?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Card Inspirations (#5)</title>
+  <title>joB APPLICATION</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../header.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/31a9ea36c8.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -43,10 +43,19 @@ include'../sidebar.php'
                             // $con = config::connect(); // The :: notation is used to call a static method on a class
                             // $user_id=70;
                             require "../user_id.php";
+                            $stmt0 = $con->query("SELECT `select`
+                            FROM information
+                            WHERE user_id = $user_id
+                            ");
+                            // $stmt->bindParam(":user_id",$user_id);
+                            $stmt0->execute();
+                            $domain=$stmt0->fetchColumn();
+echo $domain;
+echo "hello";
 
                             $stmt = $con->query("SELECT *
                             FROM jobs
-                            WHERE domain = 'informatique'
+                            WHERE domain = '$domain'
                             AND id_job NOT IN (
                               SELECT id_job
                               FROM candidature
@@ -57,6 +66,28 @@ include'../sidebar.php'
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             // Get the total number of contacts, this is so we can determine whether there should be a next and previous button
+                            if($stmt->rowCount()<1){
+                              ?>
+                              <div class="card my-3 offer">
+  <!-- <div class="card__img-container">
+    <img class="card__img" src="//unsplash.it/400" alt="Unsplash random image" />
+  </div> -->
+  <div class="card__header">
+                                   <h2 class="card__title"></h2>
+                                        <h3 class="card__subtitle">No more job</h3></div>
+                                        <div class="card__body flow">
+    <p>more job offer coming later</p>
+    <p>
+    </p>
+    <div class="oucard">
+    <button class="card__cta " onclick="window.location.href='../profil.php'">
+    <i class="fa-solid fa-backward"></i>
+      GO BACK
+                                </button>
+    <P></P></div>
+    </div> </div>
+    <?php
+                            }
                                 foreach($data as $jobs)
                                 {
                                     ?>
@@ -87,6 +118,7 @@ include'../sidebar.php'
   
   
   
+
 
 
 

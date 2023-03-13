@@ -129,7 +129,7 @@ $ville=$datas['ville'];
     <br>
     <hr class="my-4 blue-line">
     <div class="d-flex justify-content-around">
-<a class="btn btn-success dim" href="testupload\index.html">
+<a class="btn btn-success dim" href="testupload\index.php">
 <i class="fa fa-upload"></i>
  UPLOAD CV </a>
 <a class="btn btn-success dim" href="modifier.php">
