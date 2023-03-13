@@ -12,12 +12,14 @@ require "../user_id.php";
          $filesize = $_FILES['photo']['size']; 
          $filetype = $_FILES['photo']['type']; 
          $fileext = pathinfo($filename,PATHINFO_EXTENSION);
-
-      if(!in_array($fileext,$allowed)) 
-      die("error:NO"); 
-      if($filesize > $allowed)
-       die("error:NO"); 
-       if(in_array($fileext,$allowed)){ 
+         $maxSize = 10485760; 
+      if(!in_array($fileext,$allowed)) {
+      header('Location: index.html?error=PLEASE Enter a PDF,DOC,DoCX!');
+      exit;}
+            if($filesize > $maxSize){
+            header('Location: index.html?error=file should be less than 10MB');
+            exit;}
+                   if(in_array($fileext,$allowed)){ 
          $cvname=$username.".".$fileext;
          // if(file_exists("dossier/".$filename)){ echo "exists"; } 
          move_uploaded_file($_FILES['photo']['tmp_name'],"dossier/".$cvname); echo "mahzoz ana";
