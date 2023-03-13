@@ -1,0 +1,17 @@
+{
+    "name": "lenovo/try",
+    "autoload": {
+        "psr-4": {
+            "Lenovo\\Try\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Oussama Chaouki",
+            "email": "oussama11chaouki@gmail.com"
+        }
+    ],
+    "require": {
+        "smalot/pdfparser": "^2.3"
+    }
+}
