@@ -40,6 +40,9 @@ require "../user_id.php";
     .btn-sm{
         font-size: .875em;
     }
+    th{
+        font-weight: 700;
+    }
 </style>
     <!-- INPUT -->
 </head>
@@ -149,7 +152,7 @@ include'../sidebar.php'
                                         <td><?= $candidature['company'] ?></td>
                                         <td><?= $candidature['status'] ?></td>
                                         <td>
-                                            <button type="button" data-id_candidature="<?=$candidature['id_candidature'];?>" class="viewcandidatureBtn btn btn-info btn-sm" >View</button>
+                                            <button type="button" data-id_candidature="<?=$candidature['id_candidature'];?>" class="viewcandidatureBtn btn btn-info btn-sm" >View Score</button>
                                             <button type="button" value="<?=$candidature['id_candidature'];?>" class="deletecandidatureBtn btn btn-danger btn-sm">Delete</button>
                                         </td>
                                     </tr>
