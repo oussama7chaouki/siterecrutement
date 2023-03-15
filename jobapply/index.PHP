@@ -44,24 +44,33 @@ include'../sidebar.php'
                             // $user_id=70;
                             require "../user_id.php";
                             include "../inclusion\SCORE.PHP";
-                            $stmt0 = $con->query("SELECT `select`
-                            FROM information
-                            WHERE user_id = $user_id
-                            ");
-                            // $stmt->bindParam(":user_id",$user_id);
-                            $stmt0->execute();
-                            $domain=$stmt0->fetchColumn();
-// echo $domain;
+//                             $stmt0 = $con->query("SELECT `select`
+//                             FROM information
+//                             WHERE user_id = $user_id
+//                             ");
+//                             // $stmt->bindParam(":user_id",$user_id);
+//                             $stmt0->execute();
+//                             $domain=$stmt0->fetchColumn();
+// // echo $domain;
 // echo "hello";
 
-                            $stmt = $con->query("SELECT *
-                            FROM jobs
-                            WHERE domain = '$domain'
-                            AND id_job NOT IN (
-                              SELECT id_job
-                              FROM candidature
-                              WHERE user_id = $user_id
-                            )
+                            // $stmt = $con->query("SELECT *
+                            // FROM jobs
+                            // WHERE domain in (SELECT `select`
+                            // FROM information
+                            // WHERE user_id = $user_id
+                            // )
+                            // AND id_job NOT IN (
+                            //   SELECT id_job
+                            //   FROM candidature
+                            //   WHERE user_id = $user_id
+                            // )
+                            // ") ;
+                                 $stmt = $con->query("SELECT jobs.*
+                                 FROM jobs
+                                 LEFT JOIN candidature ON jobs.id_job = candidature.id_job AND candidature.user_id = $user_id
+                                 JOIN information ON jobs.domain = information.select AND information.user_id = $user_id
+                                 WHERE candidature.id_job IS NULL
                             ");
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt->execute();
@@ -69,7 +78,7 @@ include'../sidebar.php'
                             // Get the total number of contacts, this is so we can determine whether there should be a next and previous button
                             if($stmt->rowCount()<1){
                               ?>
-                              <div class="card my-3 offer">
+                              <div class="card my-3 offer" style="border-radius:5em">
   <!-- <div class="card__img-container">
     <img class="card__img" src="//unsplash.it/400" alt="Unsplash random image" />
   </div> -->
