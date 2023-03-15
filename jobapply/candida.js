@@ -6,7 +6,8 @@
       var offerId = offer.data('id');
       var offerName = offer.data('title');
       var offercompany = offer.data('company');
-      console.log(offercompany)
+      var score=offer.data('score');
+      console.log(score)
     //   var offerDate = offer.data('date');
 
       // Send the data to the server using AJAX
@@ -17,7 +18,9 @@
           id: offerId,
           title: offerName,
         company:offercompany,
-        save_apply:true}
+        save_apply:true,
+      score:score
+      }
           //   date: offerDate
         
        ,success: function(response) {

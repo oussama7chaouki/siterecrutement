@@ -9,11 +9,13 @@ if(isset($_POST['save_job']))
     $job_description = $_POST['job_description'];
     $job_salaire = $_POST['job_salaire'];
     $domain = $_POST['domain'];
-
+    $expreq=$_POST['expreq'];
+    $formationreq=$_POST['formationreq'];
+    $skillreq=$_POST['skillreq'];
 
     
 
-    if($job_title == NULL || $job_description == NULL || $job_salaire == NULL || $domain == NULL)
+    if($job_title == NULL || $job_description == NULL || $job_salaire == NULL || $domain == NULL || $expreq == NULL|| $formationreq == NULL|| $skillreq == NULL)
     {
         $res = [
             'status' => 422,
@@ -24,13 +26,17 @@ if(isset($_POST['save_job']))
     }
 
     $query = $con->prepare(" 
-    INSERT INTO jobs (job_title, job_description, job_salaire,domain,recruter_id,company)
-                             VALUES (:job_title, :job_description, :job_salaire,:domain,$recruter_id,'$company_name')
+    INSERT INTO jobs (job_title, job_description, job_salaire,domain,recruter_id,company,formationreq,skillreq,expreq)
+                             VALUES (:job_title, :job_description, :job_salaire,:domain,$recruter_id,'$company_name',:formationreq,:skillreq,:expreq)
                              ");
     $query->bindParam(":job_title",$job_title);
     $query->bindParam(":job_description",$job_description);
     $query->bindParam(":job_salaire",$job_salaire);
     $query->bindParam(":domain",$domain);
+    $query->bindParam(":expreq",$expreq);
+    $query->bindParam(":formationreq",$formationreq);
+    $query->bindParam(":skillreq",$skillreq);
+
     // $query->bindParam(":user_id",$user_id);
 
 
@@ -65,8 +71,11 @@ if(isset($_POST['update_job']))
     $job_description = $_POST['job_description'];
     $job_salaire = $_POST['job_salaire'];
     $domain = $_POST['domain'];
+    $expreq=$_POST['expreq'];
+    $formationreq=$_POST['formationreq'];
+    $skillreq=$_POST['skillreq'];
 
-    if($job_title == NULL || $job_description == NULL || $job_salaire == NULL || $domain == NULL)
+    if($job_title == NULL || $job_description == NULL || $job_salaire == NULL || $domain == NULL || $expreq == NULL|| $formationreq == NULL|| $skillreq == NULL)
     {
         $res = [
             'status' => 422,
@@ -76,11 +85,14 @@ if(isset($_POST['update_job']))
         return;
     }
 
-    $query = $con->prepare("UPDATE `jobs` SET `job_title` = :job_title, `job_description`=:job_description , `job_salaire`=:job_salaire , `domain`=:domain WHERE `id_job`='$job_id'");
+    $query = $con->prepare("UPDATE `jobs` SET `job_title` = :job_title, `job_description`=:job_description , `job_salaire`=:job_salaire , `domain`=:domain , `expreq`=:expreq ,`formationreq`=:formationreq ,`skillreq`=:skillreq  WHERE `id_job`='$job_id'");
     $query->bindParam(":job_title",$job_title);
     $query->bindParam(":job_description",$job_description);
     $query->bindParam(":job_salaire",$job_salaire);
     $query->bindParam(":domain",$domain);
+    $query->bindParam(":expreq",$expreq);
+    $query->bindParam(":formationreq",$formationreq);
+    $query->bindParam(":skillreq",$skillreq);
     // $query->bindParam(":user_id",$user_id); AND `user_id`=:user_id
 
     

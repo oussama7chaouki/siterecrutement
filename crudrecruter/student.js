@@ -60,6 +60,9 @@ $(document).on('click', '.editjobBtn', function () {
                 $('#editjob_description').val(res.data.job_description);
                 $('#editjob_salaire').val(res.data.job_salaire);
                 $('#editdomain').val(res.data.domain);
+                $('#editformationreq').val(res.data.formationreq);
+                $('#editexpreq').val(res.data.expreq);
+                $('#editskillreq').val(res.data.skillreq);
 
                 $('#jobEditModal').modal('show');
             }
@@ -121,11 +124,15 @@ $(document).on('click', '.viewjobBtn', function () {
 
                 alert(res.message);
             }else if(res.status == 200){
-
+console.log(res.data);
+bac=["","bac","bac+2","bac+3","bac+5","bac+8"]
                 $('#view_job_title').text(res.data.job_title);
                 $('#view_job_description').text(res.data.job_description);
                 $('#view_job_salaire').text(res.data.job_salaire);
                 $('#view_domain').text(res.data.domain);
+                $('#view_formationreq').text(bac[res.data.formationreq]);
+                $('#view_expreq').text(res.data.expreq);
+                $('#view_skillreq').text(res.data.skillreq);
 
                 $('#jobViewModal').modal('show');
             }

@@ -43,6 +43,7 @@ include'../sidebar.php'
                             // $con = config::connect(); // The :: notation is used to call a static method on a class
                             // $user_id=70;
                             require "../user_id.php";
+                            include "../inclusion\SCORE.PHP";
                             $stmt0 = $con->query("SELECT `select`
                             FROM information
                             WHERE user_id = $user_id
@@ -50,8 +51,8 @@ include'../sidebar.php'
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt0->execute();
                             $domain=$stmt0->fetchColumn();
-echo $domain;
-echo "hello";
+// echo $domain;
+// echo "hello";
 
                             $stmt = $con->query("SELECT *
                             FROM jobs
@@ -92,7 +93,7 @@ echo "hello";
                                 {
                                     ?>
                                     <!-- partial -->
-<div class="card my-3 offer" style="border-radius:5em"  data-id="<?= $jobs['id_job'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>">
+<div class="card my-3 offer" style="border-radius:5em"  data-id="<?= $jobs['id_job'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>" data-score="<?=scores($con,$user_id,$jobs['id_job'])?>">
 
   <div class="card__header">
     <div class="card__img-container" style="float:right">

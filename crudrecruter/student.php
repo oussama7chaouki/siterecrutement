@@ -73,16 +73,45 @@ if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
                     <input type="text" name="job_title" id="job_title" class="form-control" />
                 </div>
                 <div class="mb-3">
+    <div class="row">
+  <div class="col">
+  <label for="">job salaire</label>
+                    <input type="number" name="job_salaire" id="job_salaire" class="form-control" />
+  </div>
+  <div class="col">
+  <label for="">domain</label>
+                    <input type="text" name="domain" id="domain" class="form-control" />
+  </div>
+</div>
+                </div>
+            
+             
+              <!--  <div class="mb-3">
+                
+                </div>   -->
+                
+                              <div class="mb-3">
+                    <label for="">formation required</label>
+                    <select class="form-select" aria-label="Default select example" name="formationreq">
+  <option selected>...</option>
+  <option value="1">BAC</option>
+  <option value="2">BAC+2</option>
+  <option value="3">BAC+3</option>
+  <option value="4">BAC+5</option>
+  <option value="5">BAC+8</option>
+</select>
+                </div>                <div class="mb-3">
+                    <label for="">experience required</label>
+                    <input type="number" name="expreq" id="expreq" class="form-control" placeholder="/month"/>
+                </div>  <div class="mb-3">
+                    <label for="">skills required</label>
+                    <input type="text" name="skillreq" id="skillreq" class="form-control" />
+                </div>
+
+
+                <div class="mb-3">
                     <label for="">job description</label>
                     <textarea name="job_description" id="job_description" class="form-control" ></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="">job salaire</label>
-                    <input type="number" name="job_salaire" id="job_salaire" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label for="">domain</label>
-                    <input type="text" name="domain" id="domain" class="form-control" />
                 </div>
 
             </div>
@@ -115,17 +144,42 @@ if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
                     <label for="">job title</label>
                     <input type="text" name="job_title" id="editjob_title" class="form-control" />
                 </div>
+               
+                <div class="row">
+  <div class="col">                <div class="mb-3">
+                    <label for="">job salaire</label>
+                    <input type="number" name="job_salaire" id="editjob_salaire" class="form-control" />
+                </div></div>
+  <div class="col">              <div class="mb-3">
+                    <label for="">domain</label>
+                    <input type="text" name="domain" id="editdomain" class="form-control" />
+                </div></div>
+</div>
+
+<!-- <div class="row">
+  <div class="col"></div>
+  <div class="col"></div>
+</div> -->
+                <div class="mb-3">
+                    <label for="">formation required</label>
+                    <select class="form-select" aria-label="Default select example" name="formationreq" id="editformationreq">
+  <option selected>...</option>
+  <option value="1">BAC</option>
+  <option value="2">BAC+2</option>
+  <option value="3">BAC+3</option>
+  <option value="4">BAC+5</option>
+  <option value="5">BAC+8</option>
+</select>
+                </div>                <div class="mb-3">
+                    <label for="">experience required</label>
+                    <input type="number" name="expreq" id="editexpreq" class="form-control" placeholder="/month"/>
+                </div>  <div class="mb-3">
+                    <label for="">skills required</label>
+                    <input type="text" name="skillreq" id="editskillreq" class="form-control" />
+                </div>
                 <div class="mb-3">
                     <label for="">job description</label>
                     <textarea name="job_description" id="editjob_description" class="form-control" ></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="">job salaire</label>
-                    <input type="number" name="job_salaire" id="editjob_salaire" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label for="">domain</label>
-                    <input type="text" name="domain" id="editdomain" class="form-control" />
                 </div>
             </div>
             <div class="modal-footer">
@@ -151,17 +205,30 @@ if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
                     <label for="">job title</label>
                     <p id="view_job_title" class="form-control"></p>
                 </div>
+                <div class="row">
+  <div class="col">                <div class="mb-3">
+                    <label for="">job_salaire</label>
+                    <p id="view_job_salaire" class="form-control"></p>
+                </div></div>
+  <div class="col">                <div class="mb-3">
+                    <label for="">domain</label>
+                    <p id="view_domain" class="form-control"></p>
+                </div> </div>
+</div> 
+
+ <div class="mb-3">
+                    <label for="">formation required</label>
+                    <p id="view_formationreq" class="form-control"></p>
+                </div>  <div class="mb-3">
+                    <label for="">experience required</label>
+                    <p id="view_expreq" class="form-control"></p>
+                </div> <div class="mb-3">
+                    <label for="">skill required</label>
+                    <p id="view_skillreq" class="form-control"></p>
+                </div>
                 <div class="mb-3">
                     <label for="">job_description</label>
                     <p id="view_job_description" class="form-control"></p>
-                </div>
-                <div class="mb-3">
-                    <label for="">job_salaire</label>
-                    <p id="view_job_salaire" class="form-control"></p>
-                </div>
-                <div class="mb-3">
-                    <label for="">domain</label>
-                    <p id="view_domain" class="form-control"></p>
                 </div>
             </div>
             <div class="modal-footer">

@@ -50,24 +50,65 @@ INSERT INTO experiences (experience, company, startyear,endyear,user_id)
  
          break 2;
        }}
-      if(preg_match_all('/(\d\s*\d\s*\d\s*\d\s*)/i',$matchees[0][$i][0],$matchi)) {
+       if(preg_match_all('/(\d\s*\d\s*\d\s*\d)/i',$matchees[0][$i][0],$matchi)) {
+        $months1[0]=01;
+        $months1[1]=01;
                $startyear1=str_replace(" ","",$matchi[0][0]);
-      //  echo "start:".$startyear1;
+               if(preg_match_all('/J\s*a\s*n\s*v\s*(i\s*e\s*r)?|F\s*(e|é)\s*v\s*r\s*(i\s*e\s*r)?|M\s*a\s*r\s*s|A\s*v\s*r\s*(i\s*l)?|M\s*a\s*i|J\s*u\s*i\s*n|j\s*u\s*i\s*l\s*l\s*(e\s*t)?|A\s*o\s*(u|û)\s*t|S\s*e\s*p\s*t\s*(e\s*m\s*b\s*r\s*e)?|O\s*c\s*t\s*(o\s*b\s*r\s*e)?|N\s*o\s*v\s*(e\s*m\s*b\s*r\s*e)?|D\s*(e|é)\s*c\s*(e\s*m\s*b\s*r\s*e)?/i',$matchees[0][$i][0],$month)){
+                $nucount=count($month[0]);
+                // print_r($month[0]);
+                // echo $nucount;
+              //  print_r($matchees[0][$i][0]) ;
+              for($po=0;$po<$nucount;$po++){
+                if(preg_match('/J\s*a\s*n\s*v\s*(i\s*e\s*r)?/i',$month[0][$po])){
+                  $months1[$po]="01";
+                }   if(preg_match('/F\s*(e|é)\s*v\s*r\s*(i\s*e\s*r)?/i',$month[0][$po])){
+                  $months1[$po]="02";
+                }   if(preg_match('/M\s*a\s*r\s*s/i',$month[0][$po])){
+                  $months1[$po]="03";
+                }   if(preg_match('/A\s*v\s*r\s*(i\s*l)?/i',$month[0][$po])){
+                  $months1[$po]="04";
+                }   if(preg_match('/M\s*a\s*i/i',$month[0][$po])){
+                  $months1[$po]="05";
+                }   if(preg_match('/J\s*u\s*i\s*n/i',$month[0][$po])){
+                  $months1[$po]="06";
+                }   if(preg_match('/j\s*u\s*i\s*l\s*l\s*(e\s*t)?/i',$month[0][$po])){
+                  $months1[$po]="07";
+                }   if(preg_match('/A\s*o\s*(u|û)\s*t/i',$month[0][$po])){
+                  $months1[$po]="08";
+                } if(preg_match('/S\s*e\s*p\s*t\s*(e\s*m\s*b\s*r\s*e)?/i',$month[0][$po])){
+                  $months1[$po]="09";
+                } if(preg_match('/O\s*c\s*t\s*(o\s*b\s*r\s*e)?/i',$month[0][$po])){
+                  $months1[$po]="10";
+                } if(preg_match('/N\s*o\s*v\s*(e\s*m\s*b\s*r\s*e)?/i',$month[0][$po])){
+                  $months1[$po]="11";
+                } 
+                if(preg_match('/D\s*(e|é)\s*c\s*(e\s*m\s*b\s*r\s*e)?/i',$month[0][$po])){
+                  $months1[$po]="12";
+                }  }
+}
+              $datestart=$startyear1."-".$months1[0]."-01";
+                    //  echo "start:".$startyear1;
       if ($matchi[0][1]) {
-       $endyear1=str_replace(" ","",$matchi[0][1]);
-        // echo "end:".$endyear1;
+        $endyear1=str_replace(" ","",$matchi[0][1]);
+         // echo "end:".$endyear1;
+        }
+        else{
+         $endyear1="2023";
+        }
+        $months2=$month[0][1];
+        $dateend=$endyear1."-".$months1[1]."-01";
+       //  echo"hgjhjh";
+  echo $datestart;
+  echo $dateend;
        }
-       else{
-        $endyear1="2023";
-       }
-      }
   //  echo "start:".$startyear1;
   //                   echo "end:".$endyear1;
   // echo "<br>".$posttext."<br>";
   // echo "<br>".$text."<br>";
 
-                    $query->bindParam(":startyear",$startyear1);
-                    $query->bindParam(":endyear",$endyear1);
+  $query->bindParam(":startyear",$datestart);
+  $query->bindParam(":endyear",$dateend);
                  $company='/(S\s*O\s*C\s*I\s*(E|É)\s*T\s*(E|é)|s\s*o\s*c\s*i\s*(e|é)\s*t\s*(e|é)|S\s*o\s*c\s*i\s*(e|é)\s*t\s*(e|é)|G\s*r\s*o\s*u\s*p\s*e\s*)?\b[A-Z]{2,}\b\s*(\b[A-Z]+\b\s*)*/';        
                  foreach($jobs[0] as $postjob){
                   if($left!=true){

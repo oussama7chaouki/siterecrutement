@@ -11,7 +11,7 @@ require "../user_id.php";
     $id_jobs = $_POST['id'];
     $job_title = $_POST['title'];
     $company = $_POST['company'];
-
+$score=$_POST['score'];
 
     if( $id_jobs == NULL || $job_title == NULL || $company == NULL)
     {
@@ -24,12 +24,13 @@ require "../user_id.php";
     }
 
     $query = $con->prepare(" 
-    INSERT INTO candidature (user_id, id_job, job_title,company)
-                             VALUES ($user_id, :id_jobs, :job_title,:company)
+    INSERT INTO candidature (user_id, id_job, job_title,company,score)
+                             VALUES ($user_id, :id_jobs, :job_title,:company,:score)
                              ");
     $query->bindParam(":id_jobs",$id_jobs);
     $query->bindParam(":job_title",$job_title);
     $query->bindParam(":company",$company);
+    $query->bindParam(":score",$score);
 
 
     try {
