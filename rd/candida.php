@@ -26,13 +26,34 @@ require "../user_id.php";
     
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <style>
-    .tokenfield .token{
-        height: 2em;
+    #offcanvasRight{
+        width:min-content;
+        height:max-content;
+        border-radius:  2rem 0 0 2rem;   
+    bottom:0;
+    }
+    .offcanvas-body{
+        padding:0;
+        font-size: 11px;
+    }
+    .btn-sm{
+        font-size: .875em;
     }
 </style>
     <!-- INPUT -->
 </head>
 <body>
+    <!-- offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+ 
+ <div class="offcanvas-body">
+ <?php  include "offcanva\index.html"?>
+
+ </div>
+</div>
+<!-- offcanvas -->
+<div class="test" style="font-size: 16px;">
+
 <?php 
 include'../sidebar.php'
 ?>
@@ -51,7 +72,6 @@ include'../sidebar.php'
 </nav>
 
 </header>
-
 
 <!-- View Modal -->
 <div class="modal fade" id="candidatureViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -128,7 +148,7 @@ include'../sidebar.php'
                                         <td><?= $candidature['company'] ?></td>
                                         <td><?= $candidature['status'] ?></td>
                                         <td>
-                                            <button type="button" value="<?=$candidature['id_candidature'];?>" class="viewcandidatureBtn btn btn-info btn-sm">View</button>
+                                            <button type="button" value="<?=$candidature['id_candidature'];?>" class="viewcandidatureBtn btn btn-info btn-sm" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">View</button>
                                             <button type="button" value="<?=$candidature['id_candidature'];?>" class="deletecandidatureBtn btn btn-danger btn-sm">Delete</button>
                                         </td>
                                     </tr>
@@ -143,7 +163,7 @@ include'../sidebar.php'
           </div>
         </div>
     </div>
-</div>
+</div></div>
 </section>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
