@@ -24,11 +24,15 @@ var element = $('.passedskills.d-none');
           //   console.log(myArray0.nom)
             var html = '';
 $('#score').text(myArray0.score)
-// $('#prenom').text(myArray0.prenom)
-// $('#ville').text(myArray0.ville)
-// $('#tel').text(myArray0.tel)
-// $('#genre').text(myArray0.genre)
-// $('#Date').text(myArray0.date)
+if(myArray0.score>50){
+  $('.result-rank').text("Great")
+}
+else{
+  $('.result-rank').text("Passable")
+}
+
+
+
 
 
           

@@ -8,10 +8,10 @@
 
 :root {
   font-size: 11px;
-  --clr-primary-hsl-400: 252, 100%, 67%;
-  --clr-primary-hsl-500: 256, 72%, 46%;
-  --clr-secondary-hsl-400: 241, 81%, 54%;
-  --clr-secondary-hsl-500: 241, 72%, 46%;
+  --clr-primary-hsl-400:167, 45%, 23%;
+  --clr-primary-hsl-500: 167, 65%, 36%;
+  --clr-secondary-hsl-400: 167, 45%, 36%;
+  --clr-secondary-hsl-500: 167, 70%, 36%;
 
   --clr-neutral-hsl-100: 0, 0%, 100%;
   --clr-neutral-hsl-200: 221, 100%, 96%;
@@ -225,4 +225,9 @@ body {
 
 .summary-score span {
   color: var(--clr-neutral-700);
+}
+@media  (max-width:600px) {
+  .results{
+    border-radius: 2rem 0 0 0;
+  }
 }

@@ -29,7 +29,8 @@ require "../user_id.php";
     #offcanvasRight{
         width:min-content;
         height:max-content;
-        border-radius:  2rem 0 0 2rem;   
+        border-radius:  2rem 0 0 2rem;
+        top:auto;   
     bottom:0;
     }
     .offcanvas-body{
@@ -44,7 +45,7 @@ require "../user_id.php";
 </head>
 <body>
     <!-- offcanvas -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-bs-scroll="true">
  
  <div class="offcanvas-body">
  <?php  include "offcanva\index.html"?>
