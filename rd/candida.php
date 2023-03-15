@@ -148,7 +148,7 @@ include'../sidebar.php'
                                         <td><?= $candidature['company'] ?></td>
                                         <td><?= $candidature['status'] ?></td>
                                         <td>
-                                            <button type="button" value="<?=$candidature['id_candidature'];?>" class="viewcandidatureBtn btn btn-info btn-sm" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">View</button>
+                                            <button type="button" data-id_candidature="<?=$candidature['id_candidature'];?>" class="viewcandidatureBtn btn btn-info btn-sm" >View</button>
                                             <button type="button" value="<?=$candidature['id_candidature'];?>" class="deletecandidatureBtn btn btn-danger btn-sm">Delete</button>
                                         </td>
                                     </tr>
@@ -169,6 +169,6 @@ include'../sidebar.php'
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="candida.js"></script>
-
+<script src="offcanva\jobapplication.js"></script>
 </body>
 </html>
