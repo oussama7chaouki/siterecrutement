@@ -23,14 +23,45 @@ var element = $('.passedskills.d-none');
           //   var myArray2 = response.array3;
           //   console.log(myArray0.nom)
             var html = '';
+            var div1 = $('.summary-item:has(span#formationr)');
+            var div2 = $('.summary-item:has(span#experiencer)');
+            var div3 = $('.summary-item:has(span#skillr)');
+            console.log(div1)
 $('#score').text(myArray0.score)
-if(myArray0.score>50){
+if(myArray0.score>=50){
   $('.result-rank').text("Great")
 }
 else{
   $('.result-rank').text("Passable")
 }
+if(myArray0.reqfor){
+  $('#formationr').text("PASSED")
+  div1.css("background-color", "hsl(var(--clr-accent-3), .1)");
 
+}
+else{
+  
+  $('#formationr').text("NOT PASSED")
+  div1.css("background-color", "hsl(var(--clr-accent-1), .1)");
+
+}
+
+$('#skillr').text(myArray0.reqskill)
+if(myArray0.reqskill>=50){
+
+  div3.css("background-color", "hsl(var(--clr-accent-3), .1)");
+}
+else{
+  div3.css("background-color", "hsl(var(--clr-accent-1), .1)");
+}
+if(myArray0.reqexp){
+  $('#experiencer').text("PASSED")
+  div2.css("background-color", "hsl(var(--clr-accent-3), .1)");
+}
+else{
+  $('#experiencer').text("NOT PASSED")
+  div2.css("background-color", "hsl(var(--clr-accent-1), .1)");
+}
 
 
 

@@ -11,7 +11,14 @@ require "../user_id.php";
     $id_jobs = $_POST['id'];
     $job_title = $_POST['title'];
     $company = $_POST['company'];
-$score=$_POST['score'];
+//  $scores=json_decode($_POST['score'], true);
+$scores=$_POST['score'];
+// echo $scores;
+$score=$scores['score'];
+$reqfor=$scores['reqfor'];
+$reqexp=$scores['reqexp'];
+$reqskill=$scores['reqskill'];
+
 
     if( $id_jobs == NULL || $job_title == NULL || $company == NULL)
     {
@@ -24,14 +31,16 @@ $score=$_POST['score'];
     }
 
     $query = $con->prepare(" 
-    INSERT INTO candidature (user_id, id_job, job_title,company,score)
-                             VALUES ($user_id, :id_jobs, :job_title,:company,:score)
+    INSERT INTO candidature (user_id, id_job, job_title,company,score,reqfor,reqexp,reqskill)
+                             VALUES ($user_id, :id_jobs, :job_title,:company,:score,:reqfor,:reqexp,:reqskill)
                              ");
     $query->bindParam(":id_jobs",$id_jobs);
     $query->bindParam(":job_title",$job_title);
     $query->bindParam(":company",$company);
     $query->bindParam(":score",$score);
-
+    $query->bindParam(":reqfor",$reqfor);
+    $query->bindParam(":reqexp",$reqexp);
+    $query->bindParam(":reqskill",$reqskill);
 
     try {
         $query->execute();

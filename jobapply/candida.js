@@ -25,7 +25,7 @@
         
        ,success: function(response) {
            var res = jQuery.parseJSON(response);
-           console.log(res.message)
+          //  console.log(response)
                 if(res.status == 422) {
                     alertify.set('notifier','position', 'top-right');
                     alertify.success(res.message);

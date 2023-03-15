@@ -102,7 +102,7 @@ include'../sidebar.php'
                                 {
                                     ?>
                                     <!-- partial -->
-<div class="card my-3 offer" style="border-radius:5em"  data-id="<?= $jobs['id_job'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>" data-score="<?=scores($con,$user_id,$jobs['id_job'])?>">
+<div class="card my-3 offer" style="border-radius:5em"  data-id="<?= $jobs['id_job'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>" data-score=<?=scores($con,$user_id,$jobs['id_job'])?>>
 
   <div class="card__header">
     <div class="card__img-container" style="float:right">
