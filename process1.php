@@ -257,4 +257,72 @@ function checkemailexist($con,$email){
 
 
 
+/**************   fin process information personele         */
+
+
+//----**************------------
+
+
+if (isset($_POST['Confirmer'])) {
+
+
+  $con = config::connect(); // The :: notation is used to call a static method on a class
+
+  $name= sanitizeString($_POST['companynom']);
+  $nameperson = sanitizeString($_POST['Contact_Person_name']);
+
+  $emailperson = sanitizeString($_POST['Contact_Person_email']);
+  $telperson = sanitizeString($_POST['Contact_Person_phone_number']);
+  $address = sanitizeString($_POST['Address']);
+
+
+
+
+
+
+
+
+
+
+
+ if(insert4($con,$name,$nameperson,$emailperson,$telperson, $address)){ ;
+
+
+    echo 'hello';
+ }
+
+}
+
+
+
+function insert4($con, $name, $nameperson ,$emailperson, $telperson,$address) {
+
+  $query = $con->prepare("
+    INSERT INTO company (name, person_name, person_email, tel, address)
+    VALUES (:name, :nameperson ,:emailperson,:telperson,:address)
+  ");
+  $query->bindParam(":name", $name);
+  $query->bindParam(":nameperson", $nameperson);
+  $query->bindParam(":emailperson", $emailperson);
+  $query->bindParam(":telperson", $telperson);
+  $query->bindParam(":address", $address);
+
+
+  try {
+    if ($query->execute()) {
+      echo "Insert query executed successfully.";
+      return true;
+    } else {
+      echo "Insert query failed.";
+      return false;
+    }
+  } catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+    return false;
+  }
+
+}
+
+
+
 ?>
