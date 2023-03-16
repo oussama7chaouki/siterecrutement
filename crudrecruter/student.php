@@ -34,6 +34,10 @@ if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
         .tokenfield .token{
             height: 2em;
         }
+        .tokenfield.readonly.focus{
+            border: 1px solid #ced4da;
+    -webkit-box-shadow: none; 
+     box-shadow: none; }
         </style>
     <!-- INPUT -->
     <!-- <link rel="stylesheet" href="../sidebar.css"> -->
@@ -227,7 +231,7 @@ if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
                     <p id="view_expreq" class="form-control"></p>
                 </div> <div class="mb-3">
                     <label for="">skill required</label>
-                    <p id="view_skillreq" class="form-control"></p>
+                    <input id="view_skillreq" class="form-control shadow-none" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="">job_description</label>

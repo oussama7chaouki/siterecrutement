@@ -1,3 +1,4 @@
+
 $(document).on('submit', '#savejob', function (e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -41,7 +42,8 @@ $(document).on('submit', '#savejob', function (e) {
 });
 
 $(document).on('click', '.editjobBtn', function () {
-
+    // ('#view_skillreq').tokenfield({
+    // });
     var job_id = $(this).val();
     
     $.ajax({
@@ -62,7 +64,8 @@ $(document).on('click', '.editjobBtn', function () {
                 $('#editdomain').val(res.data.domain);
                 $('#editformationreq').val(res.data.formationreq);
                 $('#editexpreq').val(res.data.expreq);
-                $('#editskillreq').val(res.data.skillreq);
+                // $('#editskillreq').val(res.data.skillreq);
+                $('#editskillreq').tokenfield('setTokens',res.data.skillreq.split(','));
 
                 $('#jobEditModal').modal('show');
             }
@@ -112,7 +115,8 @@ $(document).on('submit', '#updatejob', function (e) {
 });
 
 $(document).on('click', '.viewjobBtn', function () {
-
+    // ('#editskillreq').tokenfield({
+    // });
     var job_id = $(this).val();
     $.ajax({
         type: "GET",
@@ -132,8 +136,8 @@ bac=["","bac","bac+2","bac+3","bac+5","bac+8"]
                 $('#view_domain').text(res.data.domain);
                 $('#view_formationreq').text(bac[res.data.formationreq]);
                 $('#view_expreq').text(res.data.expreq);
-                $('#view_skillreq').text(res.data.skillreq);
-
+                // $('#view_skillreq').text(res.data.skillreq);
+$('#view_skillreq').tokenfield('setTokens',res.data.skillreq.split(','));
                 $('#jobViewModal').modal('show');
             }
         }
