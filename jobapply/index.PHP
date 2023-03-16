@@ -66,7 +66,7 @@ include'../sidebar.php'
                             //   WHERE user_id = $user_id
                             // )
                             // ") ;
-                                 $stmt = $con->query("SELECT jobs.*
+                                 $stmt = $con->prepare("SELECT jobs.*
                                  FROM jobs
                                  LEFT JOIN candidature ON jobs.id_job = candidature.id_job AND candidature.user_id = $user_id
                                  JOIN information ON jobs.domain = information.select AND information.user_id = $user_id
