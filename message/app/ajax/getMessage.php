@@ -3,9 +3,8 @@
 session_start();
 
 # check if the user is logged in
-if (isset($_SESSION['username'])) {
 
-    if (isset($_POST['can_id'])) {
+if(isset($_POST['idlastmessage'])){
 
         # database connection file
         include "../../../config.php";
@@ -14,6 +13,7 @@ if (isset($_SESSION['username'])) {
         $id_2  = $_POST['rec_id'];
         $choix  = $_POST['choix'];
         $idlastmessage=$_POST['idlastmessage'];
+		//  print_r($_POST);
 
         $sql = "SELECT * FROM messages
                 WHERE can_id=?
@@ -40,9 +40,9 @@ if (isset($_SESSION['username'])) {
                     echo json_encode($res);
                 }
             }
-        }
-    } else {
-        header("Location: ../../index.php");
-        exit;
-    }
-}
+        }}
+    // } else {
+    //     header("Location: ../../index.php");
+    //     exit;
+    // }
+

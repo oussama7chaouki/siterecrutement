@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+      a{  text-decoration:none;}
+
+    </style>
   </head>
   <body>
   <?php   include_once "../config.php";
@@ -15,6 +19,7 @@
     $rows=getallcandidature($con) ;
    echo '<input type="text" value="1" id="choix" hidden>' ;
    $choix=1;
+   include "../sidebarrec.php";
 
   }
   else if(isset($_SESSION['user_id'])){
@@ -22,14 +27,14 @@
     $rows=getallrecruter($con) ;
     echo '<input type="text" value="0" id="choix" hidden>' ;
     $choix=0;
-
+    include "../sidebar.php";
   }
   else{
     header("location:index.php");
     exit;
   }
  
-  include "../sidebar.php";
+
   
   ?>
     <section>    <?php include "../header.php";?>
