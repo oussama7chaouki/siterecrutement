@@ -3,12 +3,14 @@
 $can_id=$_POST['can_id'];
 $rec_id=$_POST['rec_id'];
 $message=$_POST['message'];
+$choix=$_POST['choix'];
 include "../../../config.php";
 $con=config::connect();
-$sql=$con->prepare("insert into messages (can_id,rec_id,receive,message)values(:can_id,:rec_id,1,:message)");
+$sql=$con->prepare("insert into messages (can_id,rec_id,receive,message)values(:can_id,:rec_id,:choix,:message)");
 $sql->bindParam(':can_id',$can_id);
 $sql->bindParam(':rec_id',$rec_id);
 $sql->bindParam(':message',$message);
+$sql->bindParam(':choix',$choix);
 try {
  $sql->execute();
 $res = [

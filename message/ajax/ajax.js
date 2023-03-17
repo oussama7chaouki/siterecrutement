@@ -11,12 +11,14 @@
       	message = $("#message").val();
       	can_id = $("#can_id").val();
       	rec_id = $("#rec_id").val();
+          choix = $("#choix").val();
+
       	if (message == "") return;
 
           $.ajax({
             url: "app/ajax/insert.php", // path to your PHP script to handle the insert
             method: "POST", // HTTP method used for the request
-            data: { can_id: can_id, rec_id: rec_id, message: message }, // data to be sent in the request
+            data: { can_id: can_id, rec_id: rec_id, message: message,choix:choix }, // data to be sent in the request
             success: function(response) {
                 console.log(response)
                var res = jQuery.parseJSON(response);
@@ -32,7 +34,7 @@
             }
           });
 
-
+      })
       /** 
       auto update last seen 
       for logged in user
@@ -67,5 +69,40 @@
     //   every 0.5 sec
     //   **/
     //   setInterval(fechData, 500);
+        // auto refresh / reload
+      // function fechData(){
+      //          can_id = $("#can_id").val(),
+      //           rec_id = $("#rec_id").val(),
+      //             choix = $("#choix").val()
+      //            receive= choix==1?0:1
+      //            $.ajax({
+      //             url: "app/ajax/getMessage.php", // path to your PHP script to handle the insert
+      //             method: "POST", // HTTP method used for the request
+      //             data: {can_id:can_id,
+      //               rec_id:rec_id,choix:receive }, // data to be sent in the request
+      //             success: function(response) {
+      //                 console.log(response)
+      //                var res = jQuery.parseJSON(response);
+      //                $("#chatBox").append(data);
+      //                if (data != "") scrollDown();
+      //                   console.log(res.message)
+                        
+      //         scrollDown();
+      //             },
+      //             error: function(jqXHR, textStatus, errorThrown) {
+      //               // error callback function
+      //               console.log(textStatus, errorThrown); // log the error to the console
+      //             }
+      //           });
+      //         }
+  
+  
+      //   fechData();
+      //   /** 
+      //   auto update last seen 
+      //   every 0.5 sec
+      //   **/
+      //   setInterval(fechData, 500);
+      
     
- });
+//  });

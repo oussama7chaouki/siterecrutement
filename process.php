@@ -58,6 +58,9 @@ else{
 
  if(insert($con,$username,$email,$password, $re_password,$name)){ ;
      $_SESSION['username']=$username;
+     $_SESSION['user_id']=userid($con,$username);
+
+
      header("location:profilcandidat.php");
  }
 
@@ -87,6 +90,7 @@ if (isset($_POST['signin'])) {
 if(checklogin($con,$username,$password)){
 
     $_SESSION['username']=$username;
+    $_SESSION['user_id']=userid($con,$username);
      header("location:profil.php");
 
 }else{
@@ -255,6 +259,13 @@ function checkemailexist($con,$email){
 
 }
 
+function userid($con,$username){
+  $stmt = $con->query("SELECT id FROM users where username='$username'
+     ");
+     $stmt->execute();
+     $user_id= $stmt->fetchColumn();
+     return $user_id;
+}
 
 
 //**********information personnel*********

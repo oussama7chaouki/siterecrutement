@@ -7,10 +7,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
   <body>
-  <?php
-// include_once "../user_id.php";
+  <?php   include_once "../config.php";
+  session_start();$con=config::connect();
+  include "hellper\users.php";
+  if(isset($_SESSION['rec_id'])){
+    $rec_id=$_SESSION['rec_id'];
+    $rows=getallcandidature($con) ;
+   echo '<input type="text" value="1" id="choix" hidden>' ;
+   $choix=1;
+
+  }
+  else if(isset($_SESSION['user_id'])){
+    $can_id=$_SESSION['user_id'];
+    $rows=getallrecruter($con) ;
+    echo '<input type="text" value="0" id="choix" hidden>' ;
+    $choix=0;
+
+  }
+  else{
+    header("location:index.php");
+    exit;
+  }
+ 
   include "../sidebar.php";
-  include "../user_id.php";
+  
   ?>
     <section>    <?php include "../header.php";?>
     <div class="row shadow p-4 rounded mx-3">
@@ -20,8 +40,8 @@
 
 <ul class="list-group" style="height: 400px; overflow-y:auto">
     <?php
-    include "hellper\users.php";
-$rows=getallrecruter($con) ;
+ 
+
 // print_r($rows) ;
 foreach($rows as $row)
 {
@@ -51,8 +71,11 @@ foreach($rows as $row)
 
 <?php
 if(isset($_GET["id"])){
-  $can_id=$user_id;
-    $rec_id=$_GET['id']; 
+ if(isset($can_id)){
+  $rec_id=$_GET['id']; 
+ }else{
+  $can_id=$_GET['id'];
+ }
     $stmt=$con->prepare( "SELECT * FROM messages where rec_id=$rec_id AND
     can_id=$can_id ");
 
@@ -60,7 +83,7 @@ $stmt->execute();
 $chats=$stmt->fetchAll(pdo::FETCH_ASSOC);
 foreach($chats as $chat)
 {
-if($chat["receive"]==1){
+if($chat["receive"]== $choix ){
 echo '<div style="text-align:right;">
 <p style="background-color: lightblue; word-wrap: break-word; display:inline-block;
 padding:5px; border-radius:10px; max width:70%;">
@@ -68,10 +91,10 @@ padding:5px; border-radius:10px; max width:70%;">
 </p>
 </div>';}
 else{
-echo '<div style="text-align:right;">
-<p style="background-color: lightblue; word-wrap: break-word; display:inline-block;
+echo '<div style="text-align:leftt;">
+<p style="background-color: yellow; word-wrap: break-word; display:inline-block;
 padding:5px; border-radius:10px; max width:70%;">
-Schat["Message"]."
+'.$chat["message"].'
 </p>
 </div>';
 }

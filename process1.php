@@ -58,6 +58,7 @@ else{
 
  if(insert($con,$username,$email,$password, $re_password,$name)){ ;
      $_SESSION['usernamerec']=$username;
+     $_SESSION['rec_id']=recruterid($con,$username);
      header("location:profilrecruter.php");
  }
 
@@ -87,6 +88,8 @@ if (isset($_POST['signin'])) {
 if(checklogin($con,$username,$password)){
 
     $_SESSION['usernamerec']=$username;
+    $_SESSION['rec_id']=recruterid($con,$username);
+
      header("location:profilrecruter.php");
 
 }else{
@@ -252,8 +255,16 @@ function checkemailexist($con,$email){
     return true;
   }
 
-
 }
+
+function recruterid($con,$username){
+  $stmt = $con->query("SELECT id FROM recruters where username='$username'
+     ");
+     $stmt->execute();
+     $user_id= $stmt->fetchColumn();
+     return $user_id;
+}
+
 
 
 
