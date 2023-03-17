@@ -192,12 +192,12 @@ $reqskill=0;
     {
         $score=35;
     
-    }else if((37 <= $i) && ($i <= 38))
+    }else if((37 <= $i) && ($i <= 37))
     {
         $score=40;
     
     }
-    else if((39 <= $i) && ($i <= 40))
+    else if((38 <= $i) && ($i <= 39))
     {
         $score=50;
     

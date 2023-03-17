@@ -171,11 +171,11 @@ if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
                     <label for="">formation required</label>
                     <select class="form-select" aria-label="Default select example" name="formationreq" id="editformationreq">
   <option selected>...</option>
-  <option value="1">BAC</option>
+  <option value="0">BAC</option>
   <option value="2">BAC+2</option>
-  <option value="3">BAC+3</option>
-  <option value="4">BAC+5</option>
-  <option value="5">BAC+8</option>
+  <option value="15">BAC+3</option>
+  <option value="26">BAC+5</option>
+  <option value="37">BAC+8</option>
 </select>
                 </div>                <div class="mb-3">
                     <label for="">experience required</label>

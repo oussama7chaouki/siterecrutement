@@ -32,7 +32,11 @@ include'../sidebar.php'
             </li>
 
 </nav>
-
+<style>
+  .container{
+    width: 100%!important;
+  }
+</style>
 </header>
    <!-- <div id="body"> -->
    <div class="container mt-4" id="body">
@@ -53,6 +57,7 @@ include'../sidebar.php'
 //                             $domain=$stmt0->fetchColumn();
 // // echo $domain;
 // echo "hello";
+
 
                             // $stmt = $con->query("SELECT *
                             // FROM jobs
@@ -102,12 +107,20 @@ include'../sidebar.php'
                                 {
                                     ?>
                                     <!-- partial -->
-<div class="card my-3 offer" style="border-radius:5em"  data-id="<?= $jobs['id_job'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>" data-score=<?=scores($con,$user_id,$jobs['id_job'])?>>
+<div class="card my-3 offer" style="border-radius:5em"  data-id="<?= $jobs['id_job'] ?>" data-title="<?= $jobs['job_title'] ?>" data-company="<?= $jobs['company'] ?>" data-date="<?= $jobs['date'] ?>" data-score=<?=$sc=scores($con,$user_id,$jobs['id_job'])?>>
 
   <div class="card__header">
-    <div class="card__img-container" style="float:right">
-    <img class="card__img" src="//unsplash.it/400" alt="Unsplash random image" />
-  </div>                              
+    <?php
+    $scorr = json_decode($sc, true);
+    $scor = $scorr["score"];
+if($scor>70){ ?>
+  <div class="" style="float:right;margin-right: -48px;background-color: yellow;border-radius: 0 10px 0px  0;padding: 10px;">
+   PERFECT MATCH
+  </div>    <?php  } 
+  elseif($scor>50){ ?>
+  <div class="" style="float:right;margin-right: -48px;background-color: yellow;border-radius: 0 10px 0px  0;padding: 10px;">
+   GOOD MATCH
+  </div>    <?php  }?>                       
      <h2 class="card__title"><?= $jobs['company'] ?></h2>
                                         <h3 class="card__subtitle"><?= $jobs['job_title'] ?></h3></div>
                                         <div class="card__body flow">
