@@ -53,7 +53,7 @@ foreach($rows as $row)
     ?>
     
 
-    <a href="chat.php?id=<?=$row['id']?>">
+    <a href="chat.php?id=<?=$row['id']?>&username=<?=$row['username']?>">
   <li class="list-group-item" id="<?=$row['id']?>"><?=$row['username']?></li></a>
    <?php
 }
@@ -61,9 +61,15 @@ foreach($rows as $row)
 </div>
 
 <div class="col-sm-6">
-    <div class="w-400 shadow p-4 rounded">
-    	<a href="home.php"
-    	   class="fs-4 link-dark">&#8592;</a>
+<div
+            class="card-header d-flex justify-content-between align-items-center p-3 text-white border-bottom-0"
+            style="border-top-left-radius: 15px; border-top-right-radius: 15px; background-color:#338573">
+            <i class="fas fa-angle-left"></i>
+            <p class="mb-0 fw-bold"><?=isset($_GET["username"])?$_GET["username"]:"welcome to the chat"?></p>
+            <i class="fas fa-times"></i>
+          </div>
+    <div class="w-400 ">
+
 
     	   <div class="d-flex align-items-center">
 
@@ -72,7 +78,7 @@ foreach($rows as $row)
     	   <div class="shadow p-4 rounded
     	               d-flex flex-column
     	               mt-2 chat-box"
-    	        id="chatBox"  style="height: 400px; overflow-y:scroll">
+    	        id="chatBox"  style="height: 400px; overflow-y:auto">
 
 <?php
 if(isset($_GET["id"])){
@@ -114,6 +120,16 @@ padding:5px; border-radius:10px; max width:70%;">
   <button class="btn btn-outline-secondary" type="button" id="sendBtn">Button</button>
 </div>
 </form>
+<?php
+}else{
+  ?>
+  </div>
+    </div>
+<div class="input-group mb-3">
+
+  <input type="text" class="form-control readonly" placeholder="Recipient's username" aria-label="Recipient's username" id="message" aria-describedby="button-addon2" disabled>
+  <button class="btn btn-outline-secondary" type="button" disabled >Button</button>
+</div>
 <?php
 }
 ?>
