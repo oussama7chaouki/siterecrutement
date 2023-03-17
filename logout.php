@@ -6,3 +6,6 @@ session_unset();
 //redirect to login page
 header("location: login.php");
 ?>
+<script>
+    sessionStorage.removeItem('lastmessage');
+</script>

@@ -102,6 +102,7 @@ padding:5px; border-radius:10px; max width:70%;">
     </div>
 <form action="">
 <div class="input-group mb-3">
+  <input type="text" value="<?=$chat['id']?>" id="lastmessage" hidden>
   <input type="text" value="<?=$can_id?>" id="can_id" hidden>
   <input type="text" value="<?=$rec_id?>" id="rec_id" hidden>
   <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" id="message" aria-describedby="button-addon2">

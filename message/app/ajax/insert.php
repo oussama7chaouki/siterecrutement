@@ -13,6 +13,7 @@ $sql->bindParam(':message',$message);
 $sql->bindParam(':choix',$choix);
 try {
  $sql->execute();
+ $idlastmessage = $con->lastInsertId();
 $res = [
     'status' => 200,
     'message' => [
@@ -23,7 +24,7 @@ $res = [
                     </p>
                     </div>'
     ]
-
+,'idlastmessage' => $idlastmessage
 ];
 } catch (PDOException $e) {
     $res = [
