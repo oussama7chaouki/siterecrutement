@@ -13,7 +13,6 @@
          </div>
          <ul class="nav-links" style="margin-left: -16px;">
             <li> <a href="<?php echo "/".basename(dirname(__FILE__))."/profilrecruter.php" ?>"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
-            <li> <a href="#"><i class="fa fa-briefcase"></i><span>Mon Cv</span></a></li>
             <li> <a href="#<?php // echo "/".basename(dirname(__FILE__))."/jobapply/index.PHP" ?>"><i class="fa fa-bullhorn"></i><span>demandes</span></a></li>
             <li> <a href="<?php echo "/".basename(dirname(__FILE__))."/jobapplicant\jobapplicant.php" ?>"><i class="fa fa-thumb-tack"></i><span>APPLICATION</span></a></li>
             <li> <a href="<?php echo "/".basename(dirname(__FILE__))."/crudrecruter\student.php" ?>"><i class="fa fa-user-circle"></i><span>POST JOB</span></a></li>

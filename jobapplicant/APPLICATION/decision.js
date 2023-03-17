@@ -12,19 +12,21 @@ $('.accept').click(function() {
       url: 'accept_candidate.php',
       type: 'POST',
       data: { id_candidature: id_candidature,user_id:user_id},
-      dataType: 'json',
+    dataType: 'json',
       success: function(response) {
         // Display success message
         if(response.status==200){
           decisionCell.text('Accepted');
         }
-        alert(response.message);
+        console.log(response);
         // Update decision in table
         // $('button[data-id="' + candidateId + '"]').closest('tr').find('.decision').text('Accepted');
       },
       error: function(xhr, status, error) {
         // Display error message
-        alert('Error: ' + error);
+        console.log('Error: ' + error);
+        console.log(response.message);
+
       }
     });
   });
@@ -39,21 +41,21 @@ $('.accept').click(function() {
       url: 'reject_candidate.php',
       type: 'POST',
       data: { id_candidature: id_candidature,user_id:user_id},
-      dataType: 'json',
+       dataType: 'json',
       success: function(response) {
         // Display success message
         // $('#myTable4').load(location.href+ " #myTable4");
         if(response.status==200){
           decisionCell.text('Rejected');
         }
-        alert(response.message);
+        console.log(response);
         // Update decision in table
         // $('button[data-id="' + candidateId + '"]').closest('tr').find('.decision').text('Rejected')
 
       },
       error: function(xhr, status, error) {
         // Display error message
-        alert('Error: ' + error);
+        console.log('Error: ' + error);
       }
     });
   });

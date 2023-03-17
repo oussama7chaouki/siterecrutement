@@ -67,7 +67,7 @@ if(!isset($_SESSION['usernamerec'])){header("location:loginrecruter.php");
       <!-- card -->
       <div class="card">
          <a href="crudrecruter\student.php">
-            <div class="icon"><i class="material-icons md-36"><img src="businessman-paper-of-the-application-for-a-job.png" alt=""></i></div>
+            <div class="icon"><i class="material-icons md-36"><img src="posting.png" alt=""></i></div>
             <p class="title">job post</p>
             <p class="text">Check all your favourites in one place.</p>
          </a>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['usernamerec'])){header("location:loginrecruter.php");
       <!-- card -->
       <div class="card">
          <a href="jobapplicant\jobapplicant.php">
-            <div class="icon"><i class="material-icons md-36"><img src="candidate.png" alt=""></i></div>
+            <div class="icon"><i class="material-icons md-36"><img src="application.png" alt=""></i></div>
             <p class="title">application</p>
             <p class="text">delete or change your job application</p>
          </a>
@@ -87,19 +87,7 @@ if(!isset($_SESSION['usernamerec'])){header("location:loginrecruter.php");
 
    </div>
    </div>
-   <footer>
-      <h4>© 2022 Jobs Portal. </h4>
-
-      <div class="foot">
-         <a href="#">CONTACT US</a>
-         <a href="#">LOGIN</a>
-         <a href="#">SIGN UP</a>
-
-      </div>
-
-
-
-   </footer>
+   
    </section>
 
 </body>

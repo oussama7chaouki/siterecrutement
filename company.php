@@ -14,11 +14,12 @@
 <?php
 
 
-include 'sidebarrec.php'
+include 'sidebarrec.php';
+
 ?>
 <section>
-
-<div class="container green-line">
+<?php include 'header.php';?>
+<div class="container green-line" style="width:70%!important">
   <form class="border shadow p-3 rounded"  action="process1.php" method="post" id="myform" 
   >
     <h4 class="text-muted"> <i style="padding-right: 4px; font-size: 20px;"  class="fa fa-user-circle"></i>Informations personnelles</h4>
