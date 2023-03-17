@@ -40,7 +40,16 @@
     <section>    <?php include "../header.php";?>
     <div class="row shadow p-4 rounded mx-3">
  
-    <div class="col-sm-4">
+    <div class="col-lg-2"  id="usersshow">
+   
+    <p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    USERS
+  </a>
+  
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
    
 
 <ul class="list-group" style="height: 400px; overflow-y:auto">
@@ -57,10 +66,11 @@ foreach($rows as $row)
   <li class="list-group-item" id="<?=$row['id']?>"><?=$row['username']?></li></a>
    <?php
 }
-?></ul> 
+?></ul>   </div>
+</div>
 </div>
 
-<div class="col-sm-6">
+<div class="col-lg-8" id="messageshow">
 <div
             class="card-header d-flex justify-content-between align-items-center p-3 text-white border-bottom-0"
             style="border-top-left-radius: 15px; border-top-right-radius: 15px; background-color:#338573">
@@ -97,14 +107,14 @@ foreach($chats as $chat)
 if($chat["receive"]== $choix ){
 echo '<div style="text-align:right;">
 <p style="background-color: lightblue; word-wrap: break-word; display:inline-block;
-padding:5px; border-radius:10px; max width:70%;">
+padding:5px; border-radius:10px; max-width:50%;">
 '.$chat["message"].'
 </p>
 </div>';}
 else{
 echo '<div style="text-align:leftt;">
 <p style="background-color: yellow; word-wrap: break-word; display:inline-block;
-padding:5px; border-radius:10px; max width:70%;">
+padding:5px; border-radius:10px; max-width:70%;">
 '.$chat["message"].'
 </p>
 </div>';
@@ -139,5 +149,21 @@ padding:5px; border-radius:10px; max width:70%;">
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  <script src="ajax\ajax.js"></script>
+ <script>
+  $('#collapseExample').on('show.bs.collapse', function () {
+  $('#usersshow').addClass('col-lg-4');
+   $('#messageshow').removeClass('col-lg-8');
+  $('#messageshow').addClass('col-lg-6');
+
+});
+
+$('#collapseExample').on('hide.bs.collapse', function () {
+  $('#usersshow').removeClass('col-lg-4');
+  $('#messageshow').removeClass('col-lg-6');
+  $('#messageshow').addClass('col-lg-8');
+
+
+});
+ </script>
   </body>
 </html>

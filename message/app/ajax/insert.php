@@ -19,7 +19,7 @@ $res = [
     'message' => [
         'html' => '<div style="text-align:right;">
                     <p style="background-color: lightblue; word-wrap: break-word; display:inline-block;
-                    padding:5px; border-radius:10px; max width:70%;">
+                    padding:5px; border-radius:10px; max-width:50%;">
                     '.$message.'
                     </p>
                     </div>'

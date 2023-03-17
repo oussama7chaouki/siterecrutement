@@ -30,7 +30,7 @@ if(isset($_POST['idlastmessage'])){
                         'message' => [
                             'html' => '<div style="text-align:leftt;">
 							<p style="background-color: yellow; word-wrap: break-word; display:inline-block;
-							padding:5px; border-radius:10px; max width:70%;">
+							padding:5px; border-radius:10px; max-width:50%;">
 							'.$chat["message"].'
 							</p>
 							</div>'

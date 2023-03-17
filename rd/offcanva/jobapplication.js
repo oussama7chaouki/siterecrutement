@@ -34,7 +34,7 @@ if(myArray0.score>=50){
 else{
   $('.result-rank').text("Passable")
 }
-if(myArray0.reqfor){
+if(myArray0.reqfor=='true'){
   $('#formationr').text("PASSED")
   div1.css("background-color", "hsl(var(--clr-accent-3), .1)");
 
@@ -54,7 +54,7 @@ if(myArray0.reqskill>=50){
 else{
   div3.css("background-color", "hsl(var(--clr-accent-1), .1)");
 }
-if(myArray0.reqexp){
+if(myArray0.reqexp=='true'){
   $('#experiencer').text("PASSED")
   div2.css("background-color", "hsl(var(--clr-accent-3), .1)");
 }
