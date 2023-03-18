@@ -184,6 +184,11 @@ $query->bindParam(":password",$password);
 
 $query->execute();
 if($query->rowCount()==1){
+  $user = $query->fetch(PDO::FETCH_ASSOC);
+  if($user['status'] == 0) {
+      // User is disabled
+      header("location:login.php?error=Your account has been disabled.");
+      exit();}
     return true;
 }
 else{

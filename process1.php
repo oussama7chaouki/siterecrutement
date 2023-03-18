@@ -58,8 +58,8 @@ else{
 
  if(insert($con,$username,$email,$password, $re_password,$name)){ ;
      $_SESSION['usernamerec']=$username;
-     $_SESSION['rec_id']=recruterid($con,$username);
-     header("location:profilrecruter.php");
+     $_SESSION['rec_id']=recid($con,$username);
+     header("location:profilrecruteur.php");
  }
 
 }
@@ -85,11 +85,25 @@ if (isset($_POST['signin'])) {
   else{
 
 
+    $query = $con->prepare("SELECT * FROM recruters WHERE username=:username AND password=:password");
+    $query->bindParam(":username", $username);
+    $query->bindParam(":password", $password);
+    $query->execute();
+  
+    if($query->rowCount() > 0) {
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+        if($user['status'] == 0) {
+            // User is disabled
+            header("location:login.php?error=Your account has been disabled.");
+            exit();
+        }
+    
+      }
+
 if(checklogin($con,$username,$password)){
 
     $_SESSION['usernamerec']=$username;
-    $_SESSION['rec_id']=recruterid($con,$username);
-
+    $_SESSION['rec_id']=recid($con,$username);
      header("location:profilrecruter.php");
 
 }else{
@@ -255,22 +269,81 @@ function checkemailexist($con,$email){
     return true;
   }
 
-}
 
-function recruterid($con,$username){
-  $stmt = $con->query("SELECT id FROM recruters where username='$username'
-     ");
-     $stmt->execute();
-     $user_id= $stmt->fetchColumn();
-     return $user_id;
 }
 
 
+if(isset($_POST['confirmer4'])){
+    
+  $con = config::connect(); // The :: notation is used to call a static method on a class
+
+  $companynom = sanitizeString($_POST['companynom']);
+  
+  $Contact_Person_name = sanitizeString($_POST['Contact_Person_name']);
+  $Contact_Person_email= sanitizeString($_POST['Contact_Person_email']);
+  $tel= sanitizeString($_POST['Contact_Person_phone_number']);
+  $address=sanitizeString($_POST['address']);
+
+$rec_id=$_SESSION['rec_id'];
 
 
-/**************   fin process information personele         */
+  $id_company=companyid($con,$rec_id);
 
 
+
+ 
+  // $query=$con->prepare("
+  // SELECT id_company FROM company WHERE rec_id=$rec_id
+  // ");
+  // // $query->bindParam(":nom",$currentUserName);
+  // $query->execute();
+
+  
+
+  if(update4($con, $id_company ,$companynom ,  $Contact_Person_name,   $address,  $tel)){ ;
+ 
+       
+
+       echo "<script>window.location.href = 'profilrecruteur.php';</script>";
+        exit;
+     }
+    
+
+
+
+}
+
+
+function update4($con,$id_company,$companynom,$Contact_Person_name,$address,$tel,){
+
+  $query=$con->prepare("
+  
+  UPDATE company SET
+  name=:name,person_name=:person_name,person_email=:person_email,tel=:tel,address=:address
+  WHERE id_company=:id_company
+  
+  ");
+
+$query->bindParam(":name",$companynom );
+$query->bindParam(":person_name",$Contact_Person_name);
+$query->bindParam(":person_email",$Contact_Person_name);
+$query->bindParam(":address",$address);
+$query->bindParam(":tel",$tel);
+
+$query->bindParam(":id_company",$id_company);
+
+try {
+$query->execute() ;
+    // echo "UPDATE query executed successfully.";
+    return true;
+} catch (PDOException $e) {
+  echo "Error: " . $e->getMessage();
+  return false;
+}
+
+
+
+}
 //----**************------------
 
 
@@ -281,11 +354,13 @@ if (isset($_POST['Confirmer'])) {
 
   $name= sanitizeString($_POST['companynom']);
   $nameperson = sanitizeString($_POST['Contact_Person_name']);
+  
 
   $emailperson = sanitizeString($_POST['Contact_Person_email']);
   $telperson = sanitizeString($_POST['Contact_Person_phone_number']);
   $address = sanitizeString($_POST['Address']);
 
+  $rec_id=$_SESSION['rec_id'];
 
 
 
@@ -294,29 +369,31 @@ if (isset($_POST['Confirmer'])) {
 
 
 
+ if(insert4($con,$name,$rec_id,$nameperson,$emailperson,$telperson, $address)){ 
 
 
- if(insert4($con,$name,$nameperson,$emailperson,$telperson, $address)){ ;
-
-
-    echo 'hello';
+  header('location:profilrecruteur.php');
+  exit();
+  
+    
  }
 
 }
 
 
 
-function insert4($con, $name, $nameperson ,$emailperson, $telperson,$address) {
+function insert4($con, $name,$rec_id, $nameperson ,$emailperson, $telperson,$address) {
 
   $query = $con->prepare("
-    INSERT INTO company (name, person_name, person_email, tel, address)
-    VALUES (:name, :nameperson ,:emailperson,:telperson,:address)
+    INSERT INTO company (name,rec_id, person_name, person_email, tel, address)
+    VALUES (:name,:rec_id,:nameperson ,:emailperson,:telperson,:address)
   ");
   $query->bindParam(":name", $name);
   $query->bindParam(":nameperson", $nameperson);
   $query->bindParam(":emailperson", $emailperson);
   $query->bindParam(":telperson", $telperson);
   $query->bindParam(":address", $address);
+  $query->bindParam(":rec_id", $rec_id);
 
 
   try {
@@ -334,6 +411,20 @@ function insert4($con, $name, $nameperson ,$emailperson, $telperson,$address) {
 
 }
 
-
+function recid($con,$username){
+  echo "hello";
+  $stmt = $con->query("SELECT id FROM recruters where username='$username'
+     ");
+     $stmt->execute();
+     $rec_id= $stmt->fetchColumn();
+     return $rec_id;
+}
+function companyid($con,$rec_id){
+  $stmt = $con->query("SELECT id_company FROM company where rec_id='$rec_id'
+     ");
+     $stmt->execute();
+     $company_id= $stmt->fetchColumn();
+     return $company_id;
+}
 
 ?>
