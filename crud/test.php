@@ -22,11 +22,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="">Start year</label>
-                    <input type="number" name="startyear" class="form-control" />
+                    <input type="date" name="startyear" class="form-control" />
                 </div>
                 <div class="mb-3">
                     <label for="">End year</label>
-                    <input type="number" name="endyear" class="form-control" />
+                    <input type="date" name="endyear" class="form-control" />
                 </div>
             </div>
             <div class="modal-footer">
@@ -63,11 +63,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="">Start Year</label>
-                    <input type="number" name="startyear" id="startyear1" class="form-control" />
+                    <input type="date" name="startyear" id="startyear1" class="form-control" />
                 </div>
                 <div class="mb-3">
                     <label for="">End Year</label>
-                    <input type="number" name="endyear" id="endyear1" class="form-control" />
+                    <input type="date" name="endyear" id="endyear1" class="form-control" />
                 </div>
             </div>
             <div class="modal-footer">

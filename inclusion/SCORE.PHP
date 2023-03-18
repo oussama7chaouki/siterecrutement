@@ -139,7 +139,7 @@ function scores($con,$user_id,$id_job) {
     $dbs=$stmts->fetchall(PDO::FETCH_ASSOC);
     $dbe=$stmte->fetchall(PDO::FETCH_ASSOC);
      $requiresk=$stmtreqf->fetch(PDO::FETCH_ASSOC);
-     $requireformation=$requiresk['formationreq'];
+     
      $requireexp=$requiresk['expreq'];
      $required=$requiresk['skillreq'];
      $required=explode(",", $required);
@@ -158,6 +158,25 @@ $reqskill=0;
     //  print_r($required);
     //  //print_r($dbs);
     //  print_r($requiresk);
+    switch ($requiresk['formationreq']) {
+        case 0:
+            $requireformation=0;
+                        break;
+        case 1:
+            $requireformation=2;
+                        break;
+        case 2:
+            $requireformation=15;
+            break;   
+                 case 3:
+            $requireformation=26;
+            break;
+                    case 4:
+            $requireformation=38;
+            break;
+
+    }
+
     $score=0;
     $fichier= __DIR__ . '\etude.csv';
     $etudes = array_map('str_getcsv', file("$fichier"));
