@@ -126,9 +126,13 @@ if(isset($_SESSION['usernamerec'])){header("location:profil.php");
       </div>
 
       <!-- Password input -->
-      <div class="form-outline mb-4">
-        <input type="password" id="password" name="password" class="form-control" />
+      <div class="form-outline mb-4" style="
+    display: flex;
+    align-items: center;">
+      <input type="password" id="password" name="password" class="form-control" />
         <label class="form-label" for="loginPassword">Password</label>
+        <i class="fas fa-eye" style="margin-right: 5px;background-color: #ffff;
+    border-radius: 0%;"></i>
       </div>
 
       <!-- 2 column grid layout -->
@@ -381,6 +385,21 @@ pillsregistre=document.getElementById("pills-register");
     tablogin.classList.add("active");
     pillslogin.classList.add("show","active");
   }
+</script>
+<script>
+  const pswrdField = document.querySelector("form input[type='password']"),
+toggleIcon = document.querySelector("form .form-outline i");
+
+toggleIcon.onclick = () =>{
+  if(pswrdField.type === "password"){
+    pswrdField.type = "text";
+    toggleIcon.classList.add("active");
+  }else{
+    pswrdField.type = "password";
+    toggleIcon.classList.remove("active");
+  }
+}
+
 </script>
 </body>
 </html>
