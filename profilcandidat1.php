@@ -97,7 +97,7 @@ $ville=$datas['ville'];
 <p class="list-group-item-text"><?=$nom?></p>
 </div>
 <div class="list-group-item">
-<h4 class="list-group-item-heading" style="color:grey;font-size:20px" >Civilité</h4>
+<h4 class="list-group-item-heading" style="color:grey;font-size:20px" >Sexe</h4>
 <p class="list-group-item-text"><?=$genre?></p>
 </div>
 </div>

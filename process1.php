@@ -197,6 +197,16 @@ $query->bindParam(":password",$password);
 
 $query->execute();
 if($query->rowCount()==1){
+  if(isset($_POST['loginCheck']))
+  {
+    setcookie('usernamerecd',$_POST['username'],time()+60*60);//1 hour
+    setcookie('passworrecd',$_POST['password'],time()+60*60); //1 hour
+  }
+  else
+  {
+    setcookie('usenamerecd',$username,time()-10);//10 seconds
+    setcookie('passworrecd',$password,time()-10); //10 seconds
+  }
     return true;
 }
 else{

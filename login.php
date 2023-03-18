@@ -3,7 +3,15 @@
 session_start();
 if(isset($_SESSION['username'])){header("location:profil.php");
 }
-
+if(isset($_COOKIE['usernamed']) && isset($_COOKIE['password']))
+{
+  $usernamed = $_COOKIE['usernamed'];
+  $password = $_COOKIE['password'];
+}
+else
+{
+  $usernamed = $password ="";
+}
 
 ?>
 
@@ -121,7 +129,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="text" id="email" name="username" class="form-control" />
+        <input type="text" id="email" name="username" class="form-control" value="<?=$usernamed?>"/>
         <label class="form-label" for="loginName">username</label>
       </div>
 
@@ -130,7 +138,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
     display: flex;
     align-items: center;
 ">
-        <input type="password" id="password" name="password" class="form-control" />
+        <input type="password" id="password" name="password" class="form-control" value="<?=$password?>"/>
         <label class="form-label" for="loginPassword">Password</label>
         <i class="fas fa-eye" style="margin-right: 5px;background-color: #ffff;
     border-radius: 0%;"></i>
@@ -146,6 +154,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
               type="checkbox"
               value=""
               id="loginCheck"
+              name="loginCheck"
               checked
             />
             <label class="form-check-label" for="loginCheck"> Remember me </label>
@@ -311,12 +320,16 @@ toggleIcon = document.querySelector("form .form-outline i");
 toggleIcon.onclick = () =>{
   if(pswrdField.type === "password"){
     pswrdField.type = "text";
-    toggleIcon.classList.add("active");
+    toggleIcon.classList.remove("fa-eye");
+    toggleIcon.classList.add("fa-eye-slash");
   }else{
     pswrdField.type = "password";
-    toggleIcon.classList.remove("active");
+    toggleIcon.classList.remove("fa-eye-slash");
+    toggleIcon.classList.add("fa-eye");
   }
 }
+
+
 
 </script>
 </body>

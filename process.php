@@ -91,6 +91,16 @@ if(checklogin($con,$username,$password)){
 
     $_SESSION['username']=$username;
     $_SESSION['user_id']=userid($con,$username);
+    if(isset($_POST['loginCheck']))
+    {
+      setcookie('usernamed',$_POST['username'],time()+60*60);//1 hour
+      setcookie('password',$_POST['password'],time()+60*60); //1 hour
+    }
+    else
+    {
+      setcookie('usernamed',$username,time()-10);//10 seconds
+      setcookie('password',$password,time()-10); //10 seconds
+    }
      header("location:profil.php");
 
 }else{

@@ -4,6 +4,15 @@ session_start();
 if(isset($_SESSION['usernamerec'])){header("location:profil.php");
 }
 
+if(isset($_COOKIE['usernamerecd']) && isset($_COOKIE['passworrecd']))
+{
+  $usernamerecd = $_COOKIE['usernamerecd'];
+  $passworrecd = $_COOKIE['passworrecd'];
+}
+else
+{
+  $usernamerecd = $passworrecd ="";
+}
 
 ?>
 
@@ -121,7 +130,7 @@ if(isset($_SESSION['usernamerec'])){header("location:profil.php");
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="text" id="email" name="username" class="form-control" />
+        <input type="text" id="email" name="username" class="form-control"  value="<?=$usernamerecd?>"/>
         <label class="form-label" for="loginName">username</label>
       </div>
 
@@ -129,7 +138,7 @@ if(isset($_SESSION['usernamerec'])){header("location:profil.php");
       <div class="form-outline mb-4" style="
     display: flex;
     align-items: center;">
-      <input type="password" id="password" name="password" class="form-control" />
+      <input type="password" id="password" name="password" class="form-control"  value="<?=$passworrecd?>"/>
         <label class="form-label" for="loginPassword">Password</label>
         <i class="fas fa-eye" style="margin-right: 5px;background-color: #ffff;
     border-radius: 0%;"></i>
@@ -144,7 +153,7 @@ if(isset($_SESSION['usernamerec'])){header("location:profil.php");
               class="form-check-input"
               type="checkbox"
               value=""
-              id="loginCheck"
+              id="loginCheck" name="loginCheck"
               checked
             />
             <label class="form-check-label" for="loginCheck"> Remember me </label>
@@ -393,10 +402,12 @@ toggleIcon = document.querySelector("form .form-outline i");
 toggleIcon.onclick = () =>{
   if(pswrdField.type === "password"){
     pswrdField.type = "text";
-    toggleIcon.classList.add("active");
+    toggleIcon.classList.remove("fa-eye");
+    toggleIcon.classList.add("fa-eye-slash");
   }else{
     pswrdField.type = "password";
-    toggleIcon.classList.remove("active");
+    toggleIcon.classList.remove("fa-eye-slash");
+    toggleIcon.classList.add("fa-eye");
   }
 }
 
