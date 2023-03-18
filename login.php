@@ -87,7 +87,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
 <!-- Pills content -->
 
 
-<div class="tab-content" style="witdh:500px">
+<div class="tab-content" >
   <div
     class="tab-pane fade"
     id="pills-login"
@@ -95,7 +95,7 @@ if(isset($_SESSION['username'])){header("location:profil.php");
     aria-labelledby="tab-login"
   >
   <form action="process.php"   method="POST">
-      <div class="text-center mb-3" style="max-witdh:500px" >
+      <div class="text-center mb-3"  >
         <p>Sign in with:</p>
         <button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-facebook-f"></i>
