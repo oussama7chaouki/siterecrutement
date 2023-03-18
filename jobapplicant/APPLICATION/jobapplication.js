@@ -21,6 +21,7 @@ element.text('Your string here');
             var myArray = response.array1;
             var myArray1 = response.array2;
             var myArray2 = response.array3;
+            var myArray3 = response.array4;
             var html = '';
              console.log(myArray0.nom)
 $('#nom').text(myArray0.nom)
@@ -57,7 +58,7 @@ table1Body.innerHTML = html1;
 
 // element.text(myArray2[0].skill
 //     );
-console.log(myArray2.length)
+console.log(myArray3)
 if(myArray2.length>0){
 
 skilos=myArray2[0].skill.split(',')
@@ -82,6 +83,31 @@ for (var i = 0; i < skilos.length; i++) {
     skillsElement.appendChild(skillElement);
   }
 }}
+if(myArray3.length>0){
+
+  ligos=myArray3[0].language.split(',')
+  console.log(ligos)
+  console.log("hello")
+  var languagesElement = document.querySelector('.languages');
+  languagesElement.innerHTML = '';
+  var languageElement = document.createElement('ul');
+  languageElement.classList.add("list-group", "list-group-horizontal");
+  languagesElement.appendChild(languageElement);
+  // Loop through the languages array and create a new HTML element for each language
+  for (var i = 0; i < ligos.length; i++) {
+    // Create a new li element for each language
+    var languageLiElement = document.createElement('li');
+    languageLiElement.innerText = ligos[i];
+    languageLiElement.classList.add("list-group-item","flex-fill");
+    // Append the li element to the most recently created ul element
+    languageElement.appendChild(languageLiElement);
+    // If the current index is a multiple of 3, create a new ul element and append it to the languagesElement
+    if ((i + 1) % 3 === 0) {
+      languageElement = document.createElement('ul');
+      languageElement.classList.add("list-group", "list-group-horizontal");
+      languagesElement.appendChild(languageElement);
+    }
+  }}
 
           // Show offcanvas
           var userOffcanvas = new bootstrap.Offcanvas(document.querySelector('#user-details'));

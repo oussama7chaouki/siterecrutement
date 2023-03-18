@@ -19,13 +19,17 @@ require 'dbcon1.php';
                             $data1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                             $stmt2 = $con->query("SELECT * FROM skills where user_id='$user_id'");
                             $stmt2->execute();
-                            $data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+                            $data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC); 
+                            $stmt3 = $con->query("SELECT * FROM languages where user_id='$user_id'");
+                            $stmt3->execute();
+                            $data3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
 
                             $response = array(
                               "array0"=>$data0,
                                 "array1" => $data,
                                 "array2" => $data1,
-                                "array3" => $data2
+                                "array3" => $data2,
+                                "array4" => $data3
                               );     
                               echo json_encode($response);
                       

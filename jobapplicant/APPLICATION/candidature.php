@@ -74,10 +74,21 @@
                     <tbody>
                     </tbody>
                 </table> 
+                <p class="h5 bold text-center">Skills:</p>
+                
                 <div class="container skills">
                 <!-- <ul class="">
   </ul> -->
-                </div> </div>
+                </div>
+                <p class="h5 bold text-center mt-5">Languages:</p>
+                
+                <div class="container languages">
+                <!-- <ul class="">
+  </ul> -->
+                </div>
+            
+            
+            </div>
             </div>
         </div>
     </div>

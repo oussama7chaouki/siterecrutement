@@ -227,9 +227,10 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
                         </button>
                     </div>
                 </div>
-<?php include 'test.php'?> 
-<?php include 'inputtags\input.php'?>  
-
+<?php include 'test.php';
+ include 'inputtags\input.php' ;
+ include 'inputlanguage\input.php' ;
+?> 
           </div>
         </div>
     </div>
@@ -246,5 +247,6 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
         <script src="inputtags\input.js"></script>
+        <script src="inputlanguage\input.js"></script>
 </body>
 </html>
