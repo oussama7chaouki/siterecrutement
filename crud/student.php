@@ -183,11 +183,11 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Formation</th>
-                                <th>school</th>
-                                <th>startyear</th>
-                                <th>endyear</th>
-                                <th>Action</th>
+                                <th  class="w-25">Formation</th>
+                                <th  class="w-15">school</th>
+                                <th  class="w-15">startyear</th>
+                                <th  class="w-15">endyear</th>
+                                <th  class="w-30">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -210,8 +210,8 @@ if(!isset($_SESSION['username'])){header("location:../login.php");
                                         <td><?= $formation['startyear'] ?></td>
                                         <td><?= $formation['endyear'] ?></td>
                                         <td>
-                                            <button type="button" value="<?=$formation['id_formation'];?>" class="viewformationBtn btn btn-info btn-sm">View</button>
-                                            <button type="button" value="<?=$formation['id_formation'];?>" class="editformationBtn btn btn-success btn-sm">Edit</button>
+                                            <button type="button" value="<?=$formation['id_formation'];?>" class="viewformationBtn btn btn-info btn-sm mb-1">View</button>
+                                            <button type="button" value="<?=$formation['id_formation'];?>" class="editformationBtn btn btn-success btn-sm mb-1">Edit</button>
                                             <button type="button" value="<?=$formation['id_formation'];?>" class="deleteformationBtn btn btn-danger btn-sm">Delete</button>
                                         </td>
                                     </tr>

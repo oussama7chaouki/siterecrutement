@@ -13,13 +13,13 @@
 .header{
 /* clamp(max-content, 20%,250PX) */
 
-    width: 20%    ;
+    /* width: 20%    ; */
     height: 100%;
     background-color: white;
 }
 .side-nav{
 
-    /* width: 20%; */
+    width: 224px;
     height: 100%;
     background: #338573;
     position: fixed;
@@ -34,6 +34,9 @@
 .logo1-img{
     width: 150px;
 } */
+.nav-links ol, ul {
+    padding-left: 0rem;
+}
 .nav-links{
 
 list-style: none;
@@ -56,9 +59,10 @@ padding: 10px 0;
 
 
 }
-.nav-links li a i{
+.nav-links li a i,.nav-links li svg{
 
 font-size: 22px;
+width:1em;
 margin-right: 20px;
 
 }
@@ -76,17 +80,30 @@ box-shadow: 0 5px 10px rgba(255, 255, 255, 0.4);
 transition: top 0.5s;
 display: none;
 }
-.nav-links li:hover  a{
+li a svg path {
+    fill: #ffffff;
+    transition: fill 0.2s ease;
+  }
+  
+  li a:hover svg path {
+    fill: #338573;
+  }
+.nav-links li:hover  a,.nav-links li:active  a {
     color: #338573;
+   
     transition: 0.3s;
+    background-color:#fff;
+    border-radius: 6px;
+box-shadow: 0 5px 10px rgba(255, 255, 255, 0.4);
+
 }
-.nav-links li:hover ~ .active{
+/* .nav-links li:hover ~ .active{
 
 display: block;
 
 
-}
-.nav-links li:nth-child(1):hover ~ .active{
+} */
+/* .nav-links li:nth-child(1):hover ~ .active{
     top: 2.6%;
 }
 .nav-links li:nth-child(2):hover ~ .active{
@@ -103,7 +120,9 @@ display: block;
 }
 .nav-links li:nth-child(6):hover ~ .active{
     top: 85.6%;
-}
+}.nav-links li:nth-child(7):hover ~ .active{
+    top: 100%;
+} */
  
 .container{
 
@@ -160,11 +179,37 @@ section{
 
     margin-left:202px;
 }
-@media only screen and (max-width: 600px)  {
+@media only screen and (max-width:750px)  {
     .side-nav{
-        display: none;
-    }
+        width: min-content;
+    } 
     section{
-        margin-left: 0;
+        margin-left: 30px;
     }
+    .nav-links li a span{
+    display:none;
+    }
+    .nav-links li a {
+display: flex;
+justify-content: center;        }
+.nav-links {
+margin-left: 0!important;
+}
+.side-nav {
+
+    padding: 5px;
+}
+.nav-links li a i, .nav-links li svg {
+
+    margin-right:0;
+}
+#myTable {
+    width: 100%;
+  }
+#myTable th:last-child {
+    display: block;
+    width: 100%;
+  }
+
+
 }

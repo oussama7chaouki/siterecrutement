@@ -28,9 +28,12 @@ foreach ($etudes as $etude)
     $endyear=NULL;
    
     $etude=str_replace("\s*","", $etude);
-    $etude=str_replace("(o|Ô)","o", $etude);
+    $etude=str_replace("(ô|o)","o", $etude);
     $etude=str_replace("(é|e)","e",$etude);
   //  echo $etude." ";
+  $parts = explode("|", $etude);
+$etude = $parts[0];
+
 
    $texttest=substr($textContent1, $mat[0][1]-33,200);
    //echo $texttest."<br>";

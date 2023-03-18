@@ -295,7 +295,7 @@ if (isset($_POST['suivant'])) {
     $_SESSION['genre']=$genre;
     $_SESSION['tel']=$tel;
 
-    echo "<script>window.location.href = 'testupload/index.html';</script>";
+    echo "<script>window.location.href = 'testupload/index.php';</script>";
     exit;
   } 
 }

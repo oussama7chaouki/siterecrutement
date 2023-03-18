@@ -1,10 +1,5 @@
-@font-face {
-  font-family: 'HankenGrotesk';
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf') 
-       format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 :root {
   font-size: 11px;
@@ -41,7 +36,7 @@
   --clr-accent-3: 166, 100%, 37%;
   --clr-accent-4: 234, 85%, 45%;
 
-  --font-family-default: 'HankenGrotesk', sans-serif;
+  --font-family-default: 'Poppins',sans-serif;
 
   --fw-regular: 500;
   --fw-bold: 700;

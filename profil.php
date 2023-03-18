@@ -62,10 +62,10 @@ if($count<1){
    <div class="content">
       <!-- card -->
       <div class="card">
-         <a href="crud\student.php">
-            <div class="icon"><i class="material-icons md-36"><img src="resume (2).png" alt=""></i></div>
-            <p class="title">Profile</p>
-            <p class="text">Click to see or edit your profile page.</p>
+         <a href="message\chat.php">
+         <div class="icon"><i class="material-icons md-36"><img src="conversation.png" alt=""></i></div>
+            <p class="title">Message</p>
+            <p class="text"></p>
          </a>
       </div>
       <!-- end card -->
@@ -74,7 +74,7 @@ if($count<1){
          <a href="jobapply\index.PHP">
             <div class="icon"><i class="material-icons md-36"><img src="businessman-paper-of-the-application-for-a-job.png" alt=""></i></div>
             <p class="title">JOB SEARCH</p>
-            <p class="text">Check all your favourites in one place.</p>
+            <p class="text"></p>
          </a>
       </div>
       <!-- end card -->
@@ -83,7 +83,7 @@ if($count<1){
          <a href="rd\candida.php">
             <div class="icon"><i class="material-icons md-36"><img src="candidate.png" alt=""></i></div>
             <p class="title">JOB APPLY</p>
-            <p class="text">delete or change your job application</p>
+            <p class="text"></p>
          </a>
       </div>
       <!-- end card -->

@@ -57,10 +57,10 @@ if(!isset($_SESSION['usernamerec'])){header("location:loginrecruter.php");
    <div class="content">
       <!-- card -->
       <div class="card">
-         <a href="company.php">
-            <div class="icon"><i class="material-icons md-36"><img src="resume (2).png" alt=""></i></div>
-            <p class="title">Profile</p>
-            <p class="text">Click to see or edit your profile page.</p>
+         <a href="message\chat.php">
+            <div class="icon"><i class="material-icons md-36"><img src="conversation.png" alt=""></i></div>
+            <p class="title">Message</p>
+            <p class="text"></p>
          </a>
       </div>
       <!-- end card -->
@@ -68,8 +68,8 @@ if(!isset($_SESSION['usernamerec'])){header("location:loginrecruter.php");
       <div class="card">
          <a href="crudrecruter\student.php">
             <div class="icon"><i class="material-icons md-36"><img src="posting.png" alt=""></i></div>
-            <p class="title">job post</p>
-            <p class="text">Check all your favourites in one place.</p>
+            <p class="title">Job Control</p>
+            <p class="text"> </p>
          </a>
       </div>
       <!-- end card -->
@@ -77,8 +77,8 @@ if(!isset($_SESSION['usernamerec'])){header("location:loginrecruter.php");
       <div class="card">
          <a href="jobapplicant\jobapplicant.php">
             <div class="icon"><i class="material-icons md-36"><img src="application.png" alt=""></i></div>
-            <p class="title">application</p>
-            <p class="text">delete or change your job application</p>
+            <p class="title">Applicant</p>
+            <p class="text"></p>
          </a>
       </div>
       <!-- end card -->
