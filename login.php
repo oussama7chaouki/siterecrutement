@@ -126,9 +126,14 @@ if(isset($_SESSION['username'])){header("location:profil.php");
       </div>
 
       <!-- Password input -->
-      <div class="form-outline mb-4">
+      <div class="form-outline mb-4" style="
+    display: flex;
+    align-items: center;
+">
         <input type="password" id="password" name="password" class="form-control" />
         <label class="form-label" for="loginPassword">Password</label>
+        <i class="fas fa-eye" style="margin-right: 5px;background-color: #ffff;
+    border-radius: 0%;"></i>
       </div>
 
       <!-- 2 column grid layout -->
@@ -215,7 +220,8 @@ if(isset($_SESSION['username'])){header("location:profil.php");
       </div>
 
       <!-- Password input -->
-      <div class="form-outline mb-4">
+      <div class="form-outline mb-4"
+">
         <input type="password" id="registerPassword" name="password"  class="form-control" />
         <label class="form-label" for="registerPassword">Password</label>
       </div>
@@ -257,9 +263,9 @@ if(isset($_SESSION['username'])){header("location:profil.php");
   src="mdb.min.js"
 ></script>
 
+<script src="https://kit.fontawesome.com/60589374af.js" crossorigin="anonymous"></script>
 
 <script>
-
 const errorMessage1 = document.getElementById("error1");
 const errorMessage2 = document.getElementById("error2");
 
@@ -297,6 +303,21 @@ pillsregistre=document.getElementById("pills-register");
     tablogin.classList.add("active");
     pillslogin.classList.add("show","active");
   }
+</script>
+<script>
+  const pswrdField = document.querySelector("form input[type='password']"),
+toggleIcon = document.querySelector("form .form-outline i");
+
+toggleIcon.onclick = () =>{
+  if(pswrdField.type === "password"){
+    pswrdField.type = "text";
+    toggleIcon.classList.add("active");
+  }else{
+    pswrdField.type = "password";
+    toggleIcon.classList.remove("active");
+  }
+}
+
 </script>
 </body>
 </html>
