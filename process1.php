@@ -57,9 +57,51 @@ else{
 
 
  if(insert($con,$username,$email,$password, $re_password,$name)){ ;
-     $_SESSION['usernamerec']=$username;
+      $_SESSION['tmpusernamerec']=$username;
      $_SESSION['rec_id']=recid($con,$username);
-     header("location:profilrecruteur.php");
+    //  $_SESSION['tmpusername']=$username;
+
+     $otp = rand(100000,999999);
+     $_SESSION['otp'] = $otp;
+     $_SESSION['mail'] = $email;
+     require "Mail/phpmailer/PHPMailerAutoload.php";
+     $mail = new PHPMailer;
+
+     $mail->isSMTP();
+     $mail->Host='smtp.gmail.com';
+     $mail->Port=587;
+     $mail->SMTPAuth=true;
+     $mail->SMTPSecure='tls';
+
+     $mail->Username='oussamahamzahichamikram@gmail.com';
+     $mail->Password='hkajujwtaupsngad';
+
+     $mail->setFrom('email account', 'OTP Verification');
+     $mail->addAddress($_POST["email"]);
+
+     $mail->isHTML(true);
+     $mail->Subject="Your verify code";
+     $mail->Body="<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>
+     <br><br>
+     <p>With regrads,</p>
+     <b>Weelcome To Dream JOB </b>
+";
+
+             if(!$mail->send()){
+                 ?>
+                     <script>
+                         alert("<?php echo "Register Failed, Invalid Email "?>");
+                     </script>
+                 <?php
+             }else{
+                 ?>
+                 <script>
+                     alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
+                     window.location.replace('verification.php');
+                 </script>
+                 <?php
+             }
+    //  header("location:profilrecruteur.php");
  }
 
 }
@@ -85,21 +127,6 @@ if (isset($_POST['signin'])) {
   else{
 
 
-    $query = $con->prepare("SELECT * FROM recruters WHERE username=:username AND password=:password");
-    $query->bindParam(":username", $username);
-    $query->bindParam(":password", $password);
-    $query->execute();
-  
-    if($query->rowCount() > 0) {
-        $user = $query->fetch(PDO::FETCH_ASSOC);
-        if($user['status'] == 0) {
-            // User is disabled
-            header("location:login.php?error=Your account has been disabled.");
-            exit();
-        }
-    
-      }
-
 if(checklogin($con,$username,$password)){
 
     $_SESSION['usernamerec']=$username;
@@ -111,7 +138,7 @@ if(checklogin($con,$username,$password)){
     exit();
 }
 }
-}
+ }
 
 // if(isset($_POST['update'])){
 //     $con = config::connect(); // The :: notation is used to call a static method on a class
@@ -207,13 +234,30 @@ if($query->rowCount()==1){
     setcookie('usenamerecd',$username,time()-10);//10 seconds
     setcookie('passworrecd',$password,time()-10); //10 seconds
   }
+  $query = $con->prepare("SELECT * FROM recruters WHERE username=:username AND password=:password");
+  $query->bindParam(":username", $username);
+  $query->bindParam(":password", $password);
+  $query->execute();
+
+  if($query->rowCount() > 0) {
+      $user = $query->fetch(PDO::FETCH_ASSOC);
+      if($user['status'] == 0) {
+          // User is disabled
+          header("location:loginrecruter.php?error=Your account has been disabled.");
+          exit();
+      }
+      else if($user['activation'] == 0){
+        header("location:loginrecruter.php?error=Please verify email account before login.");
+        exit();
+        ////////////////////////////////
+      }
     return true;
 }
 else{
     return false;
 }
 }
-
+}
 
 function sanitizeString($string){
     $string=strip_tags($string);

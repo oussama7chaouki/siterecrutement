@@ -11,4 +11,5 @@ session_start();
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt->execute();
                             $rec_id= $stmt->fetchColumn();
+                            print_r($_SESSION);
                         ?>

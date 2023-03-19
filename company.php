@@ -18,7 +18,7 @@ include 'sidebarrec.php';
 
 ?>
 <section>
-<?php include 'header.php';?>
+<?php include 'headerrec.php';?>
 <div class="container green-line" style="width:70%!important">
   <form class="border shadow p-3 rounded"  action="process1.php" method="post" id="myform" 
   >
