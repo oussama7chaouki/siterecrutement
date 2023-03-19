@@ -28,6 +28,7 @@ foreach ($etudes as $etude)
     $endyear=NULL;
    
     $etude=str_replace("\s*","", $etude);
+    $etude=str_replace("\s+","", $etude);
     $etude=str_replace("(ô|o)","o", $etude);
     $etude=str_replace("(é|e)","e",$etude);
   //  echo $etude." ";
@@ -50,9 +51,14 @@ $etude = $parts[0];
   $text=substr($textContent1, $mat[0][1]-$trois,200); 
 
 //  echo "<br>".$text." \n end end end"."<br>";
-   if ($etude=="Bac"|$etude=="Baccalaureat"){
+// echo $etude."</br>";
+   if ($etude=="Bac"){
+    // echo "hello";
+    // echo $text;
     if(preg_match($lycee,$text,$scholl)){
-        // echo $scholl[0];
+        echo $scholl[0];
+        echo "hello";
+
         $schollou=$scholl[0];
     }
    }

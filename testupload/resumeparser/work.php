@@ -133,9 +133,9 @@ INSERT INTO experiences (experience, company, startyear,endyear,user_id)
                                     }
                                   }
                                   // print_r($micho);
-
+echo "hello";
                           $postjob=str_replace("\s*","", $postjob);
-                          // echo $postjob;
+                          $postjob=str_replace("(é|e)","e", $postjob);
                           // echo $com.'<br> <br>';
                           $query->bindParam(":experience",$postjob);
                           $query->bindParam(":company",$com);
@@ -176,7 +176,8 @@ INSERT INTO experiences (experience, company, startyear,endyear,user_id)
                                  $n++;
                                       }}
 // print_r($micho);
-                            $postjob=str_replace("\s*","", $postjob);
+$postjob=str_replace("\s*","", $postjob);
+$postjob=str_replace("(é|e)","e", $postjob);
                             // echo $postjob;
                             // echo "<br>".$matchees[0][$i][0]."<br>";
                             // echo $com.'<br> <br>';
