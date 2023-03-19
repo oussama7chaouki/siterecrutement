@@ -40,6 +40,9 @@ require 'APPLICATION\userid.php';
  $stmt->execute();
  $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
  // Get the total number of contacts, this is so we can determine whether there should be a next and previous button
+    if($stmt->rowCount()){
+
+    
      foreach($data as $job)
      {
       $id_job=$job['id_job'];
@@ -60,7 +63,19 @@ require 'APPLICATION\userid.php';
 </div>
 <?php
                                 }
-                            ?>
+                              }
+                              else{
+?>                                <div class="card mx-auto mt-5" style="width:70%" >
+  <div class="card-header">
+  NO Job Posted
+</div>
+  <div class="card-body">
+    <h5 class="card-title">NO Job Posted</h5>
+    <p class="card-text" style="font-size: 0.8em;">  
+    <a href="../profilrecruter.php" class="btn btn-primary" >Go back</a>
+  </div>
+                        <?php       }
+                           ?>
                             </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
