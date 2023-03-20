@@ -138,7 +138,12 @@ include'../sidebar.php'
                             // $con = config::connect(); // The :: notation is used to call a static method on a class
                             // $user_id=70;
                             
-                            $stmt = $con->query("SELECT * FROM candidature where user_id='$user_id'");
+                            $stmt = $con->query("SELECT company.name, jobs.job_title,candidature.*
+                            FROM candidature
+                            JOIN jobs ON jobs.id_job = candidature.id_job
+                            JOIN company ON company.rec_id = jobs.recruter_id
+                            JOIN users ON users.id = candidature.user_id
+                            WHERE users.id = '$user_id'");
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt->execute();
                             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -149,7 +154,7 @@ include'../sidebar.php'
                                     <tr>
                                         <td><?= $candidature['date'] ?></td>
                                         <td><?= $candidature['job_title'] ?></td>
-                                        <td><?= $candidature['company'] ?></td>
+                                        <td><?= $candidature['name'] ?></td>
                                         <td><?= $candidature['status'] ?></td>
                                         <td>
                                             <button type="button" data-id_candidature="<?=$candidature['id_candidature'];?>" class="viewcandidatureBtn btn btn-info btn-sm mb-1" >View Score</button>

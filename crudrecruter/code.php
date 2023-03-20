@@ -45,15 +45,15 @@ if(isset($_POST['save_job']))
 
         $res = [
             'status' => 200,
-            'message' => 'job_title Created Successfully'
+            'message' => 'job Created Successfully'
         ];
         echo json_encode($res);
         return;
     } catch(PDOException $e) {
         $res = [
             'status' => 500,
-            'message' => $e->getMessage()
-            // 'job_title Not Created'
+            'message' =>'job_title Not Created'
+            // $e->getMessage()
         ];
         echo json_encode($res);
         return;
@@ -101,7 +101,7 @@ if(isset($_POST['update_job']))
 
     $res = [
         'status' => 200,
-        'message' => 'job_title Updated Successfully'
+        'message' => 'job Updated Successfully'
     ];
     echo json_encode($res);
     return;
@@ -134,7 +134,7 @@ if(isset($_GET['job_id']))
 
         $res = [
             'status' => 200,
-            'message' => 'job_title Fetch Successfully by id',
+            'message' => 'job Fetch Successfully by id',
             'data' => $job
         ];
         echo json_encode($res);
@@ -144,7 +144,7 @@ if(isset($_GET['job_id']))
     {
         $res = [
             'status' => 404,
-            'message' => 'job_title Id Not Found'
+            'message' => 'job Id Not Found'
         ];
         echo json_encode($res);
         return;
@@ -162,14 +162,14 @@ if(isset($_POST['delete_job']))
     
         $res = [
             'status' => 200,
-            'message' => 'job_title Deleted Successfully'
+            'message' => 'job Deleted Successfully'
         ];
         echo json_encode($res);
         return;
     } catch(PDOException $e) {
         $res = [
             'status' => 500,
-            'message' => 'job_title Not Deleted'
+            'message' => 'job Not Deleted'
         ];
         echo json_encode($res);
         return;

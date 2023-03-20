@@ -31,12 +31,10 @@ $reqskill=$scores['reqskill'];
     }
 
     $query = $con->prepare(" 
-    INSERT INTO candidature (user_id, id_job, job_title,company,score,reqfor,reqexp,reqskill)
-                             VALUES ($user_id, :id_jobs, :job_title,:company,:score,:reqfor,:reqexp,:reqskill)
+    INSERT INTO candidature (user_id, id_job,score,reqfor,reqexp,reqskill)
+                             VALUES ($user_id, :id_jobs,:score,:reqfor,:reqexp,:reqskill)
                              ");
     $query->bindParam(":id_jobs",$id_jobs);
-    $query->bindParam(":job_title",$job_title);
-    $query->bindParam(":company",$company);
     $query->bindParam(":score",$score);
     $query->bindParam(":reqfor",$reqfor);
     $query->bindParam(":reqexp",$reqexp);
