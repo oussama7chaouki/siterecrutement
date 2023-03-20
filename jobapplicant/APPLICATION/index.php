@@ -155,7 +155,8 @@ include'../../sidebarrec.php'
 
                                         <td>
                                             <button type="button" data-user-id="<?=$job['id'];?>" class=" btn btn-info btn-sm view-user" >View</button>
-                                            <button type="button" data-user_id="<?=$job['id'];?>" class="accept btn btn-succes btn-sm" data-id_candidature="<?=$job['id_candidature']?>">accept</button>
+                                            <button type="button" class="downloadcv btn btn-succes btn-sm" data-user_id="<?=$job['id'];?>" >download cv</button>   
+                                             <button type="button" data-user_id="<?=$job['id'];?>" class="accept btn btn-succes btn-sm" data-id_candidature="<?=$job['id_candidature']?>">accept</button>
                                             <button type="button" data-user_id="<?=$job['id'];?>" class="reject btn btn-danger btn-sm" data-id_candidature="<?=$job['id_candidature']?>">refuse</button>
 
                                         </td>

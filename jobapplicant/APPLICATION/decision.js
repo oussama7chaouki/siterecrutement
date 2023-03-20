@@ -59,3 +59,25 @@ $('.accept').click(function() {
       }
     });
   });
+
+  $('.downloadcv').click(function() {
+    var row = $(this).closest('tr');
+    var user_id = $(this).data('user_id');
+    // Call AJAX endpoint to reject candidate
+    $.ajax({
+      url: 'fetch_user_details.php',
+      type: 'POST',
+      data: { user_id: user_id },
+      dataType: 'json',
+      success: function(response) {
+        console.log("heeelo")
+        window.location.replace(
+          "useeindex.php"
+        );
+      },
+      error: function(xhr, status, error) {
+        // Display error message
+        console.log('Error: ' + error);
+      }
+    });
+  });

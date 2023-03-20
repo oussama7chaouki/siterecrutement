@@ -1,9 +1,19 @@
 <?php
-
+session_start();
 require 'dbcon1.php';
  $con = config::connect(); // The :: notation is used to call a static method on a class
                             // $user_id=3;
-                            $user_id=$_POST['user_id'];
+                            if(isset($_POST['user_id'])){
+
+                              $user_id=$_POST['user_id'];
+                            }
+                            else if(isset($_GET['user_id'])){
+
+                              $user_id=$_GET['user_id'];
+                            }
+                            else{
+                              header('location:google.com');
+                            }
                             $stmt0 = $con->query("SELECT * FROM information where user_id='$user_id'");
                             // $stmt->bindParam(":user_id",$user_id);
                             $stmt0->execute();
@@ -31,5 +41,6 @@ require 'dbcon1.php';
                                 "array3" => $data2,
                                 "array4" => $data3
                               );     
+                              $_SESSION["response"]=$response;
                               echo json_encode($response);
                       
