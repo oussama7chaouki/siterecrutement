@@ -16,7 +16,7 @@
   include "hellper\users.php";
   if(isset($_SESSION['rec_id'])){
     $rec_id=$_SESSION['rec_id'];
-    $rows=getallcandidature($con) ;
+    $rows=getallcandidature($con,$rec_id) ;
    echo '<input type="text" value="1" id="choix" hidden>' ;
    $choix=1;
    include "../sidebarrec.php";
@@ -24,7 +24,7 @@
   }
   else if(isset($_SESSION['user_id'])){
     $can_id=$_SESSION['user_id'];
-    $rows=getallrecruter($con) ;
+    $rows=getallrecruter($con,$can_id) ;
     echo '<input type="text" value="0" id="choix" hidden>' ;
     $choix=0;
     include "../sidebar.php";
