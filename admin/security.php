@@ -4,7 +4,7 @@ session_start();
 
 
 
-if(!$_SESSION['username']){
+if(!$_SESSION['emailadmin']){
     header('location:login.php');
 }
 

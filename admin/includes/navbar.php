@@ -3,7 +3,7 @@
 error_reporting(E_ALL ^ E_NOTICE);  
 
 session_start();
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['emailadmin'])){
   header('location:login.php');
 }
 ?>
@@ -122,7 +122,7 @@ if(!isset($_SESSION['username'])){
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                   
              <?php
-             echo $_SESSION['username'];
+             echo $_SESSION['emailadmin'];
 
              ?>
                   

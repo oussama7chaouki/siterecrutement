@@ -7,7 +7,7 @@ require 'dbcon1.php';
   $rec_id=$_SESSION['rec_id'];
 //   echo $user_id;
  $query= $con->prepare("UPDATE `candidature` SET `status` = 'Rejected' WHERE `candidature`.`id_candidature` =$id_candidature ");
- $stmt=$con->prepare('insert into messages(can_id,rec_id,receive,message) values (?,?,1,"Your candidature has been accepted")');
+ $stmt=$con->prepare('insert into messages(can_id,rec_id,receive,message) values (?,?,1,"Your candidature has been rejected")');
  try {
     $query->execute();
 $stmt->execute([$user_id,$rec_id]);

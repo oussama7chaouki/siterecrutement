@@ -17,8 +17,8 @@
 <?php include 'sidebar.php'?>
 <section>
 
-<div class="container green-line">
-  <form class="border shadow p-3 rounded"  action="process.php" method="post" id="myform" >
+<div class="container green-line" >
+  <form class="border shadow p-3 rounded"  action="process.php" method="post" id="myform" style=" height: 976px;">
     <h4 class="text-muted"> <i style="padding-right: 4px; font-size: 20px;"  class="fa fa-user-circle"></i>Informations personnelles</h4>
     <hr class="my-4 blue-line">
 

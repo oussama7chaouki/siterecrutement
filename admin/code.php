@@ -108,7 +108,7 @@ if(isset($_POST['login_btn'])){
      if($query->rowCount()>0){
       
         $row=$query->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['username']=$row['email'];
+        $_SESSION['emailadmin']=$row['email'];
         header('location:index.php');
         exit();
      }else{

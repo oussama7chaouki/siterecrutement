@@ -45,7 +45,7 @@ return $data;
 function getallrecruter($con,$user_id){
 
     // $stmt=$con->prepare("select username,id from recruters ");
-    $stmt=$con->prepare("SELECT recruters.username, recruters.id
+    $stmt=$con->prepare("SELECT DISTINCT recruters.username, recruters.id
     FROM jobs
     JOIN candidature ON jobs.id_job = candidature.id_job
     JOIN recruters ON jobs.recruter_id = recruters.id
