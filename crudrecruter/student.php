@@ -250,7 +250,7 @@ if(!isset($_SESSION['usernamerec'])){header("location:../loginrecruter.php");
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="text-center">UPDATE PROFIL
+                    <h4 class="text-center">JOB GESTION
                     </h4>
                 </div>
                 <div class="card-body">

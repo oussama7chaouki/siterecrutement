@@ -166,63 +166,64 @@ $reqskill=0;
             $requireformation=2;
                         break;
         case 2:
-            $requireformation=15;
+            $requireformation=14;
             break;   
-                 case 3:
-            $requireformation=26;
+     case 3:
+            $requireformation=24;
             break;
-                    case 4:
-            $requireformation=38;
+       case 4:
+            $requireformation=37;
             break;
-
+      default:
+            $requireformation=0;
+            break;
     }
-
     $score=0;
     $fichier= __DIR__ . '\etude.csv';
     $etudes = array_map('str_getcsv', file("$fichier"));
     $etudes=$etudes[0];
     // print_r($etudes);
-    $i=0;
+    $i=-1;
     foreach($etudes as $formation){
-    $i++;
-    if($i<$requireformation){
-        continue;
-        
-    }
+   $i++;
+    if($i>=$requireformation){
+     
+   
     if (in_array($formation, $dbf)) {
     if((0 <= $i) && ($i <= 1))
     {
     $score=5;
     }
-    else if((2 <= $i) && ($i <= 14))
+    else if((2 <= $i) && ($i <= 13))
     {
         $score=15;
+        $j="llflf";
     
-    }else if((15 <= $i) && ($i <= 23))
+    }else if((14 <= $i) && ($i <= 21))
     {
         $score=25;
     
-    }else if((24 <= $i) && ($i <= 25))
+    }else if((22 <= $i) && ($i <= 23))
     {
         $score=30;
     
     }
-    else if((26 <= $i) && ($i <= 36))
+    else if((24 <= $i) && ($i <= 33))
     {
         $score=35;
     
-    }else if((37 <= $i) && ($i <= 37))
+    }else if((34 <= $i) && ($i <= 35))
     {
         $score=40;
     
     }
-    else if((38 <= $i) && ($i <= 39))
+    else if((36 <= $i) && ($i <= 37))
     {
         $score=50;
     
     }
     
-    } 
+    }   }
     }
     if($score!=0){
         $reqfor="true";
@@ -267,7 +268,8 @@ $reqskill=0;
         "score" => ceil($score),
         "reqexp" => "$reqexp",
         "reqfor" => "$reqfor",
-        "reqskill" =>$reqskill
+        "reqskill" =>$reqskill,
+
       );
       // Encode the array data as a JSON string
       $scoring= json_encode($data);
