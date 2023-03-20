@@ -1,5 +1,5 @@
 <?php
-require 'vendor\autoload.php';
+require '../../vendor/autoload.php';
 require '../../user_id.php';
 $query=$con->exec("delete from formations where user_id=$user_id");
 $query=$con->exec("delete from experiences where user_id=$user_id");
