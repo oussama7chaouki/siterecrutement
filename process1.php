@@ -354,7 +354,7 @@ $rec_id=$_SESSION['rec_id'];
 
   
 
-  if(update4($con, $id_company ,$companynom ,  $Contact_Person_name,   $address,  $tel)){ ;
+  if(update4($con, $id_company ,$companynom ,  $Contact_Person_name,$Contact_Person_email,   $address,  $tel)){ ;
  
        
 
@@ -368,7 +368,7 @@ $rec_id=$_SESSION['rec_id'];
 }
 
 
-function update4($con,$id_company,$companynom,$Contact_Person_name,$address,$tel,){
+function update4($con,$id_company,$companynom,$Contact_Person_name,$Contact_Person_email,$address,$tel,){
 
   $query=$con->prepare("
   
@@ -380,7 +380,7 @@ function update4($con,$id_company,$companynom,$Contact_Person_name,$address,$tel
 
 $query->bindParam(":name",$companynom );
 $query->bindParam(":person_name",$Contact_Person_name);
-$query->bindParam(":person_email",$Contact_Person_name);
+$query->bindParam(":person_email",$Contact_Person_email);
 $query->bindParam(":address",$address);
 $query->bindParam(":tel",$tel);
 
