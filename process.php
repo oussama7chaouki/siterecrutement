@@ -168,8 +168,9 @@ function insert($con,$username,$email,$password,$re_password,$name) {
 
      $mail->Username='oussamahamzahichamikram@gmail.com';
      $mail->Password='hkajujwtaupsngad';
-
-     $mail->setFrom('email account', 'OTP Verification');
+     $mail->From = "email.address@gmail.com";
+     $mail->FromName = "Dream Job";
+     $mail->setFrom('Dream Job', 'OTP Verification');
      $mail->addAddress($_POST["email"]);
 
      $mail->isHTML(true);

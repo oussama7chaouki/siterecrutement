@@ -172,10 +172,10 @@ $reqskill=0;
             $requireformation=24;
             break;
        case 4:
-            $requireformation=37;
+            $requireformation=36;
             break;
       default:
-            $requireformation=0;
+            $requireformation=-1;
             break;
     }
     $score=0;
@@ -197,7 +197,6 @@ $reqskill=0;
     else if((2 <= $i) && ($i <= 13))
     {
         $score=15;
-        $j="llflf";
     
     }else if((14 <= $i) && ($i <= 21))
     {
@@ -211,7 +210,7 @@ $reqskill=0;
     else if((24 <= $i) && ($i <= 33))
     {
         $score=35;
-    
+
     }else if((34 <= $i) && ($i <= 35))
     {
         $score=40;
@@ -269,7 +268,8 @@ $reqskill=0;
         "reqexp" => "$reqexp",
         "reqfor" => "$reqfor",
         "reqskill" =>$reqskill,
-
+        "reql" =>$requireformation,
+"formation"=>$dbf
       );
       // Encode the array data as a JSON string
       $scoring= json_encode($data);
@@ -277,3 +277,7 @@ return $scoring ;
     }
     ;
     
+    // $fichier= __DIR__ . '\etude.csv';
+    // $etudes = array_map('str_getcsv', file("$fichier"));
+    // $etudes=$etudes[0];
+    // print_r($etudes);
