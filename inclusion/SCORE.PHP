@@ -189,7 +189,7 @@ $reqskill=0;
     if($i>=$requireformation){
      
    
-    if (in_array($formation, $dbf)) {
+    if (in_array($formation, $dbf, true)) {
     if((0 <= $i) && ($i <= 1))
     {
     $score=5;
