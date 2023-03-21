@@ -60,46 +60,7 @@ else{
      $_SESSION['user_id']=userid($con,$username);
      $_SESSION['tmpusername']=$username;
 
-     $otp = rand(100000,999999);
-     $_SESSION['otp'] = $otp;
-     $_SESSION['mail'] = $email;
-     require "Mail/phpmailer/PHPMailerAutoload.php";
-     $mail = new PHPMailer;
-
-     $mail->isSMTP();
-     $mail->Host='smtp.gmail.com';
-     $mail->Port=587;
-     $mail->SMTPAuth=true;
-     $mail->SMTPSecure='tls';
-
-     $mail->Username='oussamahamzahichamikram@gmail.com';
-     $mail->Password='hkajujwtaupsngad';
-
-     $mail->setFrom('email account', 'OTP Verification');
-     $mail->addAddress($_POST["email"]);
-
-     $mail->isHTML(true);
-     $mail->Subject="Your verify code";
-     $mail->Body="<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>
-     <br><br>
-     <p>With regrads,</p>
-     <b>Weelcome To Dream JOB </b>
-";
-
-             if(!$mail->send()){
-                 ?>
-                     <script>
-                         alert("<?php echo "Register Failed, Invalid Email "?>");
-                     </script>
-                 <?php
-             }else{
-                 ?>
-                 <script>
-                     alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
-                     window.location.replace('verification.php');
-                 </script>
-                 <?php
-             }
+   
  }
 
 }
@@ -192,6 +153,51 @@ if(checklogin($con,$username,$password)){
 
   
 function insert($con,$username,$email,$password,$re_password,$name) {
+  
+  $otp = rand(100000,999999);
+     $_SESSION['otp'] = $otp;
+     $_SESSION['mail'] = $email;
+     require "Mail/phpmailer/PHPMailerAutoload.php";
+     $mail = new PHPMailer;
+
+     $mail->isSMTP();
+     $mail->Host='smtp.gmail.com';
+     $mail->Port=587;
+     $mail->SMTPAuth=true;
+     $mail->SMTPSecure='tls';
+
+     $mail->Username='oussamahamzahichamikram@gmail.com';
+     $mail->Password='hkajujwtaupsngad';
+
+     $mail->setFrom('email account', 'OTP Verification');
+     $mail->addAddress($_POST["email"]);
+
+     $mail->isHTML(true);
+     $mail->Subject="Your verify code";
+     $mail->Body="<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>
+     <br><br>
+     <p>With regrads,</p>
+     <b>Weelcome To Dream JOB </b>
+";
+
+             if(!$mail->send()){
+                 ?>
+                     <script>
+                         alert("<?php echo "Register Failed, Invalid Email "?>");
+                     </script>
+                 <?php
+                      header("location:login.php?error=TRY LATER");
+                      //email probleme
+                 return false;
+             }else{
+                 ?>
+                 <script>
+                     alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
+                     window.location.replace('verification.php');
+                 </script>
+                 <?php
+             }
+
     $query = $con->prepare(" 
     INSERT INTO users (username, email, password,re_password,name)
                              VALUES (:username, :email, :password,:re_password,:name)
