@@ -125,6 +125,10 @@
     // $requireexp=0;
     // include 'config.php';
     // $con = config::connect(); // The $i=0;
+    function in_arrayi($needle, $haystack) {
+        return in_array(strtolower($needle), array_map('strtolower', $haystack));
+    }
+    
 function scores($con,$user_id,$id_job) {
 
     $stmtf=$con->prepare("select formation from formations where user_id=$user_id");
@@ -147,6 +151,7 @@ function scores($con,$user_id,$id_job) {
     $reqfor="false";
 $reqexp="false";
 $reqskill=0;
+
     foreach($dbfs as $f){
         array_push($dbf,$f['formation']);
     }
@@ -189,7 +194,7 @@ $reqskill=0;
     if($i>=$requireformation){
      
    
-    if (in_array($formation, $dbf, true)) {
+    if (in_arrayi($formation, $dbf)) {
     if((0 <= $i) && ($i <= 1))
     {
     $score=5;
