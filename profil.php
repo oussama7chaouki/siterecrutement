@@ -40,7 +40,7 @@ if($count<1){
 <section>
    <header>
 
-<a href="#" class="logo">LOGO</a>
+<a href="#" class="logo">DREAMJOB</a>
 <nav class="nav">
    <li class="nav-item">
       <!-- <a href=""> <?php // echo 'hello ' .$_SESSION['username']; 

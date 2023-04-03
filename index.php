@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width
     , initial-scale=1.0">
-    <title>Document</title>
+    <title>Site recrutement</title>
+    <link rel="icon" type="image/png" href="candidate.png"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -41,7 +42,7 @@
 <!-- modaal end -->
 <header>
 
- <a href="#" class="logo">LOGO</a>
+ <a href="#" class="logo">DREAMJOB</a>
  <nav class="nav">
 
  <a href="loginrecruter.php">Recruter</a>
@@ -55,7 +56,7 @@
 
 <div class="content">
 <h2 id="oussamach">find a <span id="och" class="grish">job </span> that<br><span class="grish">matches</span> your <span id="ouch">  passion</span></h2>
-<h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque praesentium aut ex incidunt porro voluptas repellat.</h3>
+<h3>Connecting job seekers with their dream careers, one click at a time.</h3>
 
 <div class="row">
 <!-- Button trigger modal -->

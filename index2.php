@@ -13,7 +13,7 @@
 <body>
 <header>
 
- <a href="#" class="logo">LOGO</a>
+ <a href="#" class="logo">DREAMJOB</a>
  <nav class="nav">
 
  <a href="#login">Login</a>

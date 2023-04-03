@@ -6,10 +6,10 @@
           <div class="row alignFooter">
             <!--Grid column-->
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-              <h5 class="text-uppercase text-light">JOBS</h5>
+              <h5 class="text-uppercase text-light">DREAMJOB</h5>
       
               <p class="text-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quisquam ullam suscipit temporibus, fugit dicta nihil hic reiciendis. Officia deserunt unde perferendis animi error veniam incidunt mollitia iste fuga? Distinctio!
+              Finding the perfect candidate for your company can be a daunting task, but with our platform, Even Recruter, the process is simple and efficient. Our user-friendly interface allows you to post job listings, review applications, and communicate with candidates all in one place. Our advanced search and filter options help you quickly identify the most qualified candidates, saving you valuable time and resources. With Even Recruter, you can trust that you're getting access to top talent and making informed hiring decisions that will propel your company forward.
               </p>
             </div>
             <!--Grid column-->
